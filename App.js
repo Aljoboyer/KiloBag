@@ -15,93 +15,72 @@ import {
 } from 'react-native';
 
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SendOTP from './screens/Login/SendOTP/SendOTP';
-import ChooseLanguage from './screens/Login/ChooseLanguage/ChooseLanguage';
-import SendOTPWithKb from './screens/Login/SendOTPWithKb/SendOTPWithKb';
-import VerifyPhone from './screens/Login/VerifyPhone/VerifyPhone';
-import LocationPermission from './screens/Login/LocationPermission/LocationPermission';
-import Home from './screens/Home/Home';
-import Category from './screens/Category/Category';
-import ProductDetails from './screens/ProductDetails/ProductDetails';
-import Menu from './screens/Menu/Menu';
-import Cart from './screens/Cart/Cart';
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import ProductDetails from './src/screens/ProductDetails/ProductDetails';
+import Menu from './src/screens/Menu/Menu';
+import Cart from './src/screens/Cart/Cart';
+import ChooseLanguage from './src/screens/Login/ChooseLanguage/ChooseLanguage';
+import SendOTPWithKb from './src/screens/Login/SendOTP/SendOTP';
+import LocationPermission from './src/screens/Login/LocationPermission/LocationPermission';
+import SendOTPTwo from './src/screens/Login/SendOTPTwo/SendOTPTwo';
+import SendOTP from './src/screens/Login/SendOTP/SendOTP';
+import VerifyPhone from './src/screens/Login/VerifyPhone/VerifyPhone';
+import PackingLove from './src/screens/Login/PackingLove/PackingLove';
+import DailyHome from './src/screens/Home/DailyHome';
+import InstantHome from './src/screens/Home/InstantHome';
+import MonthlyHome from './src/screens/Home/MonthlyHome';
+import InstantCategory from './src/screens/CategoryProduct/InstantCategory';
+import DailyCategory from './src/screens/CategoryProduct/DailyCategory';
+import MonthlyCategory from './src/screens/CategoryProduct/MonthlyCategory';
 
 Amplify.configure(awsconfig);
 
 const Stack = createNativeStackNavigator();
 
+const AppTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme,
+    background: "white",
+  }
+}
+
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const screen = Dimensions.get("screen");
+
   const usernew = false;
   // console.log(signOut());
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-
-
-        {
-          usernew ? (<>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Category" component={Category} />
-            <Stack.Screen name="ProductDetails" component={ProductDetails} />
-            <Stack.Screen name="Menu" component={Menu} />
-            <Stack.Screen name="Cart" component={Cart} />
-          </>) : (<>
-            <Stack.Screen name="ChooseLanguage" component={ChooseLanguage} />
-            <Stack.Screen name="SendOTP" component={SendOTP} />
-            <Stack.Screen name="SendOTPWithKb" component={SendOTPWithKb} />
-            <Stack.Screen name="VerifyPhone" component={VerifyPhone} />
-            <Stack.Screen name="LocationPermission" component={LocationPermission} />
-          </>)
-        }
-      </Stack.Navigator>
+    <NavigationContainer theme={AppTheme}>
+      <Stack.Navigator initialRouteName='Menu'  screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Menu" component={Menu} />
+    </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  highlight: {
-    fontWeight: '700',
-  },
-  selectedLanguage: {
-    width: 125,
-    height: 120,
-    borderRadius: 10,
-    borderWidth: 5,
-    borderColor: '#929292',
-    backgroundColor: '#F5F5F5',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  notSelectedLanguage: {
-    width: 125,
-    height: 120,
-    borderRadius: 10,
-    borderColor: '#929292',
-    backgroundColor: '#F5F5F5',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
-  },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-  checkbox: {
-    alignSelf: "flex-start",
-    // borderColor: 'red',
-    // borderWidth: 3,
-  },
-});
+MonthlyCategory
 
 export default App;
+// {
+//   usernew ? (<>
+//     <Stack.Screen name="InstantHome" component={InstantHome} />
+//      <Stack.Screen name="DailyHome" component={DailyHome} /> 
+//      <Stack.Screen name="MonthlyHome" component={MonthlyHome} />
+//        <Stack.Screen name="InstantCategory" component={InstantCategory} />
+//        <Stack.Screen name="DailyCategory" component={DailyCategory} />
+//      <Stack.Screen name="MonthlyCategory" component={MonthlyCategory} />
+//     <Stack.Screen name="ProductDetails" component={ProductDetails} />
+//     <Stack.Screen name="Menu" component={Menu} />
+//     <Stack.Screen name="Cart" component={Cart} />
+//   </>) : (<>
+//     <Stack.Screen name="ChooseLanguage" component={ChooseLanguage} />
+//     {/* <Stack.Screen name="SendOTPTwo" component={SendOTPTwo} /> */}
+//     <Stack.Screen name="SendOTP" component={SendOTP} />
+//     <Stack.Screen name="VerifyPhone" component={VerifyPhone} />
+//     <Stack.Screen name="LocationPermission" component={LocationPermission} />
+// <Stack.Screen name="PackingLove" component={PackingLove} />
+//   </>)
+// }
