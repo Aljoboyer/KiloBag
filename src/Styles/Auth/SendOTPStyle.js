@@ -32,7 +32,7 @@ export const SendOTPStyle = StyleSheet.create({
     inputContainer: {
         justifyContent: 'center',
         alignItems: 'flex-start',
-        paddingBottom: 50,
+        paddingBottom: 40,
         paddingTop: 20
     },
     PassInputs:{
@@ -43,5 +43,6 @@ export const SendOTPStyle = StyleSheet.create({
         width: 300,
         height: 50,
         marginTop: 10
-    }
+    },
+    CheckBoxContainer:{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingBottom: 30}
 });

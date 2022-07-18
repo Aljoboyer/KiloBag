@@ -1,11 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
-import Octicons from 'react-native-vector-icons/Octicons'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Colors } from './../../Theme/Colors';
 
 const DisplayHeader = ({backgroundColor}) => {

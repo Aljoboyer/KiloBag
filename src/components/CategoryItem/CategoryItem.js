@@ -5,7 +5,7 @@ import { Colors } from './../../Theme/Colors';
 const CategoryItem = ({categories}) => {
     const CategoryItem =  ({item}) => (
       
-            <Pressable style={{ marginVertical: 16 }}  onPress={() => navigation.navigate('Category')}>
+            <Pressable style={{ marginVertical: 16,  marginHorizontal: 10}}  onPress={() => navigation.navigate('Category')}>
                 <View style={CategoryStyle.categories}>
                     <Image style={{width: '80%', height: '80%'}} source={require('../../../assets/vegetable.png')}/>
                 </View>
@@ -15,9 +15,9 @@ const CategoryItem = ({categories}) => {
   return (
     
         <FlatList
-        contentContainerStyle={CategoryStyle.categoryContainer}
+        numColumns={3}
         data={categories}
-        renderItem={CategoryItem}
+        renderItem={CategoryItem} 
         keyExtractor={item => item.index}
         horizontal={false}
         showsHorizontalScrollIndicator={false}

@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
 import { Colors } from './../../Theme/Colors';
 
+
 export const CategoryStyle = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 20,
-        paddingVertical: 0
+        paddingVertical: 0,
+        zIndex: -1
     },
     header: {
         flexDirection: 'row',
@@ -60,13 +62,21 @@ export const CategoryStyle = StyleSheet.create({
         shadowRadius: 1,
         elevation: 2,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: 0
     },
     CategoryItemContainer:{
-        marginHorizontal: 10
+        marginHorizontal: 10,
+   
     },
     imageView: {
         height: 80,
         width: 80,
+    },
+    DropDownBox: {backgroundColor: 'white', position: 'absolute', left: 10, width: 160, top: 30, zIndex: 2, justifyContent: 'center', alignItems: 'center', paddingVertical: 10, elevation: 2, borderRadius: 10},
+    DropDownText:{
+        fontSize: 15,
+        fontWeight: '500',
+        marginVertical: 10
     }
 })

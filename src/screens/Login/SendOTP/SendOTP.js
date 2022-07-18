@@ -1,5 +1,5 @@
 import { View, Text, Image, StyleSheet, Dimensions, TextInput, ScrollView } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CustomButton from '../../../components/CustomButton'
 import CheckBox from '@react-native-community/checkbox';
 import { CognitoIdentityProvider } from "@aws-sdk/client-cognito-identity-provider";
@@ -10,12 +10,11 @@ import { CognitoUserPool, CognitoUserAttribute, CognitoUser, AuthenticationDetai
 import AWS from 'aws-sdk';
 
 const CognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
-// cognitoidentityserviceprovider.adminForgetDevice(params, function (err, data) {
-//   if (err) console.log(err, err.stack); // an error occurredelse     console.log(data);           // successful response
-// });
 
 
 const SendOTP = ({ navigation }) => {
+  const [isSelected, setSelection] = useState(false);
+
     const screen = Dimensions.get("screen");
     const region = "ap-south-1";
     const provider = new CognitoIdentityProvider({ region });
@@ -147,7 +146,6 @@ const SendOTP = ({ navigation }) => {
             <Text style={{ color: '#343333', fontSize: 14, fontWeight: '500' }} >Enter Mobile Number</Text>
         </View> 
         <View style={SendOTPStyle.inputContainer}>
-
             <View style={{ flexDirection: 'row', alignItems: 'flex-end', }}>
                 <View >
                     <Text style={{ color: '#000' , fontSize: 12}}>Country Code</Text>
@@ -169,16 +167,19 @@ const SendOTP = ({ navigation }) => {
                     />
                 </View>
             </View>
-            <View>
-                <TextInput
-                    style={SendOTPStyle.PassInputs}
-                    value={passWord}
-                    secureTextEntry={false}
-                    onChangeText={password => setPassWord(password)}
-                    placeholder='Password'
-                />
-            </View>
         </View>
+        <View style={SendOTPStyle.CheckBoxContainer}>
+              <CheckBox
+                  value={isSelected}
+                  onValueChange={setSelection}
+                  style={{alignSelf: "flex-start",}}
+              />
+              <View style={{ justifyContent: 'flex-start', }}>
+                  <Text style={{ fontSize: 12, color: '#2A2A2A', fontWeight: '500', }}>By clicking on ‘Send OTP’, I agree to the
+                      <Text style={{ fontWeight: '700' }}> Terms and Condition & Privacy Policy</Text>
+                  </Text>
+              </View>
+              </View>
         <CustomButton title="Send OTP" onPress={LonginHandler} />
     </ScrollView>
     )

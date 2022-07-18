@@ -27,7 +27,8 @@ export const Homestyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderColor: '#F5F5F5',
-        borderWidth: 1
+        borderWidth: 1,
+        marginTop: 20
     },
     search: {
         flex: 1,

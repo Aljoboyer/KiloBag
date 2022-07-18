@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Text, TextInput, ScrollView, SafeAreaView, Image, Pressable, FlatList, } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -8,23 +8,29 @@ import Octicons from 'react-native-vector-icons/Octicons'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Carousel from "pinar";
-import { Homestyles } from './../../Styles/Home/HomeStyle';
-import BottomTab from './../../components/BottomTab';
+import { Homestyles } from '../../Styles/Home/HomeStyle';
+import BottomTab from '../../components/BottomTab';
 import DisplayHeader from '../../components/DisplayHeader/DisplayHeader'
-import { Colors } from './../../Theme/Colors';
-import { colors } from './../../../../../../Projects/React-Native/planet-apps/src/theme/colors';
+import { Colors } from '../../Theme/Colors';
 import CategoryItem from '../../components/CategoryItem/CategoryItem'
 import { BigDeals, categories, FreshItems } from '../../components/CategoryItem/CategoryData'
-import FressFindItem from '../../components/FreshFindItem/FreshFindItem'
+import FreshFindItem from '../../components/FreshFindItem/FreshFindItem'
 
-const InstantHome = ({ navigation }) => {
+const Home = ({ navigation }) => {
+    const [listViewRef, setListViewRef] = useState(null)
+    const [scrollIndex, setScrollIndex] = useState(0);
 
-   
+    const PreviousButton = () => {
+        listViewRef.scrollToIndex({ index: scrollIndex, animated: true })
+      };
+    
+      const NextButton = () => {
+        listViewRef.scrollToIndex({ index: scrollIndex, animated: true })
+      };
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} >
             <DisplayHeader backgroundColor={Colors.LightGreen}/>
             <ScrollView style={Homestyles.Homecontainer} >
-                <Text style={Homestyles.SearchBoxTitle}>It’s all here under one roof!</Text>
                 <View style={Homestyles.searchInput}>
                     <TextInput
                         autoCorrect={false}
@@ -109,9 +115,26 @@ const InstantHome = ({ navigation }) => {
                         <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
                     </View>
                 </View>
-                <View style={{ marginTop: 50 , paddingBottom: 20}} >
+                <View style={{ marginTop: 50 , paddingBottom: 10}} >
                     <Text style={Homestyles.sectionTitle}>Fresh Finds</Text>
-                    <FressFindItem items={FreshItems} />
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 10, }}>
+                     <Pressable onPress={() => {
+                        if(scrollIndex > 0){
+                            setScrollIndex(scrollIndex - 1)
+                        }
+                        PreviousButton()}}   style={{paddingRight: 15}}>
+                         <Text>
+                            <Octicons name='chevron-left' style={{ color: Colors.LightGray, fontSize: 30,}} />
+                         </Text>
+                    </Pressable>
+                    <FreshFindItem setListViewRef={setListViewRef} items={FreshItems} />
+                    <Pressable onPress={() => { setScrollIndex(scrollIndex + 1), NextButton()}}  style={{paddingLeft: 15}}>
+                         <Text>
+                            <Octicons name='chevron-right' style={{ color: Colors.LightGray, fontSize: 30}} /> 
+                         </Text>
+                    </Pressable> 
+                </View>
+
                     <View style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
                         <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
@@ -123,4 +146,4 @@ const InstantHome = ({ navigation }) => {
     )
 }
 
-export default InstantHome
+export default Home

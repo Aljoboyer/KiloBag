@@ -4,24 +4,24 @@ import { Colors } from './../../Theme/Colors';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { ModalStyle } from './../../Styles/ModalStyle/ModalStyle';
 
-const FressFindItem = ({items}) => {
+const FreshFindItem = ({items, setListViewRef}) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [amount, setAmount] = useState(null)
     const freshItem =  ({item}) => (
     
-        <View  style={{ marginVertical: 16, }}>
+        <View  style={{ marginVertical: 16, marginHorizontal: 15}}>
             <View style={FreshItemStyle.categories}>
                 <Image style={{width: '80%', height: '80%'}} source={require('../../../assets/Eggpland.png')}/>
             </View>
-            <View style={FreshItemStyle.itemFooter}>
+            <View  style={FreshItemStyle.itemFooter}>
                 <Text style={FreshItemStyle.categoryTitle}>{item}</Text>
-                <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 5}}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 10}}>
                     <Text style={{color: Colors.White, fontSize: 14, paddingVertical: 20}}>$21</Text>
                     <Pressable onPress={() => setModalVisible(true)}  style={FreshItemStyle.AmountBtn}>
                         <Text  style={{color: Colors.Black}}>1Kg </Text>
                         <MaterialIcons name='keyboard-arrow-down' style={{ fontSize: 20, color: Colors.Black, }} />
                     </Pressable>
-                </View>
+                </View> 
             </View>
             <View style={ModalStyle.centeredView}>
                 <Modal
@@ -58,16 +58,18 @@ const FressFindItem = ({items}) => {
                     </View>
                 </Modal>
             </View>
-        </View>
+        </View> 
     )
   return (
     
         <FlatList
-        contentContainerStyle={FreshItemStyle.categoryContainer}
+        ref={(ref) => {
+            setListViewRef(ref);
+          }}
         data={items}
         renderItem={freshItem}
         keyExtractor={item => item.index}
-        horizontal={false}
+        horizontal
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         />
@@ -76,28 +78,25 @@ const FressFindItem = ({items}) => {
 }
 
 
-export default FressFindItem;
+export default FreshFindItem;
 
 const FreshItemStyle = StyleSheet.create({
 
     categories: {
         height: 100,
-        width: 110,
+        width: 130,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+  
     },
     categoryTitle: {
         color: Colors.White,
         fontWeight: '500',
         marginTop: 5,
         fontSize: 16,
-        marginLeft: 5
+        marginLeft: 10
     },
-    categoryContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-    },
+
     itemFooter:{
         backgroundColor: Colors.LightGreen,
         borderBottomLeftRadius: 10,

@@ -20,44 +20,34 @@ const  CategoryProductItem = ({subscription}) =>  {
             return <>
             <View key={item} style={styles.MainContainer}>
                 <Pressable onPress={() => navigation.navigate('ProductDetails')}>
-                    <View style={{ flexDirection: 'row' }}>
+                    <View style={{ flexDirection: 'row', }}>
                         <View style={styles.imageView}>
                             <Image source={require('../../../assets/waterMalon.png')} />
                         </View>
-                            <View style={{ justifyContent: 'space-between', paddingVertical: 5, }}>
-                           
+                        <View style={{ alignItems: 'flex-start', justifyContent: 'space-between', paddingVertical: 5, }}>
+                        
                             <View>
                                 <Text style={{color: 'black', fontSize: 14}}>Watermelon</Text>
-
-                                
                             </View>
 
-                            <View style={{flexDirection: 'row', marginVertical: 5}}>
+                            <View style={{flexDirection: 'row', marginVertical: 10}}>
                                 <Text style={{color: 'black', fontSize: 14}}>$21</Text>
-                                <Text style={{color: Colors.LightGray, fontSize: 14, textDecorationLine: 'line-through', marginLeft: 15}}>$21</Text>
+                                <Pressable onPress={() => setModalVisible(true)}>
+                                        <Text style={{color: Colors.LightGreen, fontSize: 14, marginLeft: 15}}>2500ml <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
+                                </Pressable>
                             </View>
-                            <Pressable onPress={() => setModalVisible(true)} style={styles.AmountBtn}>
-                                <Text style={{color: Colors.White}}>1kg {" "} <Octicons name='chevron-down' style={{ color: 'white', fontSize: 12, }} /></Text>
+                            <Pressable  style={styles.AmountBtn}>
+                                <Text style={{color: Colors.DarkGray, fontSize: 15}}>Subscribe @20</Text>
                             </Pressable>
                         </View>
                     </View>
                 </Pressable>
 
-                <View style={{ justifyContent: 'space-between', padding: 2 }}>
-
-                    {
-                        subscription == 'instant' && <MaterialCommunityIcons name='flash' style={{ fontSize: 20, alignSelf: 'flex-end', color: Colors.LightGreen, }} />
-                    }
-
-                    {
-                        subscription == 'daily' && <MaterialCommunityIcons name='clock-time-four' style={{ fontSize: 20, alignSelf: 'flex-end', color: Colors.LightPink, }} />
-                    }
-                    {
-                        subscription == 'monthly' && <MaterialCommunityIcons name='calendar-range' style={{ fontSize: 20, alignSelf: 'flex-end', color: Colors.LightBlue, }} />
-                    }
+                {
+                    item == 1 && <View style={{ justifyContent: 'flex-end', paddingBottom: 10 }}>
                     <View style={{ flexDirection: 'row' }}>
                         <Pressable style={{ backgroundColor: Colors.LightGreen, padding: 2, borderRadius: 2 }}>
-                                                   <Entypo name='minus' style={{ color: 'white', fontSize: 16, fontWeight: '600' }} />
+                        <Entypo name='minus' style={{ color: 'white', fontSize: 16, fontWeight: '600' }} />
                         </Pressable>
                         <Text style={{ marginHorizontal: 12, color: 'black' }}>2</Text>
                         <Pressable style={{ backgroundColor: Colors.LightGreen, padding: 2, borderRadius: 2 }}>
@@ -65,6 +55,21 @@ const  CategoryProductItem = ({subscription}) =>  {
                         </Pressable>
                     </View>
                 </View>
+                }
+               {
+                item == 2 &&  <View  style={{ justifyContent: 'flex-end', paddingBottom: 5 }}>
+                <Pressable style={styles.ButNowBtn}>
+                    <Text style={{color: 'white', fontSize: 14}}>Buy Now</Text>
+                </Pressable>
+            </View>
+               }
+             {
+                    item == 3 && <View  style={{ justifyContent: 'flex-end', paddingBottom: 5 }}>
+                <Text style={{color: Colors.LightPink , fontSize: 14, paddingLeft: 10, fontWeight: '700'}}>OUT OF STOCK</Text>
+                </View> 
+                  
+               }
+
             </View> 
             <View style={ModalStyle.centeredView}>
             <Modal
@@ -111,7 +116,7 @@ const  CategoryProductItem = ({subscription}) =>  {
 export default CategoryProductItem;
 
 const styles = StyleSheet.create({
-    imageView:{ height: 90, width: 90, borderRadius: 12, marginRight: 12 , justifyContent: 'center', alignItems: 'center', borderColor: Colors.LightGreen, borderWidth: 1.5},
+    imageView:{ height: 90, width: 90, borderRadius: 12, marginRight: 12 , justifyContent: 'center', alignItems: 'flex-start',},
     MainContainer:{ padding: 12, borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12,        backgroundColor: "white",
     borderRadius: 10,
     shadowColor: "#000",
@@ -122,8 +127,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 1,
     elevation: 1, },
-    AmountBtn:{ backgroundColor: Colors.LightGreen, padding: 4, borderRadius: 8, alignItems: 'center' },
+    AmountBtn:{ borderColor: Colors.LightGreen, padding: 4, borderRadius: 8, alignItems: 'center', borderWidth: 1 , paddingHorizontal: 10},
     AmountViewStyle:{width: 200,},
     ModalText:{fontSize: 20, fontWeight: '500', color: Colors.Black, marginTop: 10, borderColor: Colors.LightGreen, borderWidth: 1, paddingHorizontal: 15, paddingVertical: 5},
+    ButNowBtn:{
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        backgroundColor: Colors.LightGreen,
+        borderRadius: 5
+    }
 
 })
