@@ -36,6 +36,7 @@ import FreshFindsProduct from './src/screens/FreshFindsProduct/FreshFindsProduct
 import TodayOffers from './src/screens/TodayOffers/TodayOffers';
 import Subscribe from './src/screens/Subscribe/Subscribe';
 import SearchProduct from './src/screens/SearchProduct/SearchProduct';
+import ChooseLocation from './src/screens/ChooseLocation/ChooseLocation';
 
 Amplify.configure(awsconfig);
 
@@ -55,10 +56,10 @@ const App = () => {
   // console.log(signOut());
   return (
     <NavigationContainer theme={AppTheme}>
-      <Stack.Navigator initialRouteName='Home'  screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator initialRouteName='ChooseLocation'  screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="ChooseLocation" component={ChooseLocation} />
       </Stack.Navigator> 
-    </NavigationContainer>
+    </NavigationContainer> 
   );
 };
 

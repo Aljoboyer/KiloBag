@@ -50,7 +50,7 @@ export default function BottomModal({bottomModalVisible, setBottomModalVisible})
                 showsVerticalScrollIndicator={false}
                 />
         </ScrollView>
-    </Modal>
+        </Modal>
   )
 }
 

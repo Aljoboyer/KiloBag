@@ -9,7 +9,7 @@ import { CategoryStyle } from './../../Styles/CategoryStyle/CategoryStyle';
 
 const KiloBagHeader = ({ category,setCategory, location, title, search, image, backbtn, show, setShow}) => {
   return (
-   <View style={{backgroundColor: Colors.LightGreen, paddingVertical: 20, paddingLeft: 7, paddingRight: 10}}>
+   <View style={styles.HeaderContainer}>
      <View style={styles.deliverLocation}>
 
         {
@@ -101,4 +101,5 @@ const styles = StyleSheet.create({
         // fontWeight: 'bold',
         color: Colors.White
     },
+    HeaderContainer:{backgroundColor: Colors.LightGreen, height: 90, justifyContent: 'center', paddingRight: 15, paddingLeft: 10}
 })

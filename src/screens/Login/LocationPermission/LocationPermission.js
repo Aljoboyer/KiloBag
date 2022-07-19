@@ -24,9 +24,6 @@ const LocationPermission = ({ navigation }) => {
             </View>
             <View>
                 <CustomButton title='Enable' onPress={() => navigation.navigate("Home")} customStyles={{width: 150, alignSelf: 'center'}} />
-                <Pressable>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center', padding: 15, color: '#2A2A2A', width: 150, alignSelf: 'center' }}>Not Now</Text>
-                </Pressable>
             </View>
 
         </View>
