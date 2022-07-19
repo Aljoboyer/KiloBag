@@ -13,6 +13,7 @@ import { Colors } from '../../Theme/Colors';
 import { categories } from '../../components/CategoryItem/CategoryData';
 import BottomTab from '../../components/BottomTab';
 import CategoryProductItem from '../../components/CategoryProductItem/CategoryProductItem'
+import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
 
 
 const CategoryProduct = ({ navigation }) => {
@@ -47,38 +48,7 @@ const CategoryProduct = ({ navigation }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, }}>
-             <View style={[CategoryStyle.header, { backgroundColor: Colors.LightGreen}]}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Pressable onPress={() => navigation.goBack()}>
-                        <Octicons name='chevron-left' style={{fontSize: 25 , color: Colors.White}} />
-                    </Pressable>
-                    <View>
-                        <Pressable onPress={() => setShow(!show)}>
-                             <Text style={{ fontSize: 19, marginLeft: 15, fontWeight: '500', color: Colors.White}}>{category} <AntDesign name='caretdown' style={{fontSize: 18 , color: 'white'}} /></Text>
-                        </Pressable>
-                       {show &&  <View style={CategoryStyle.DropDownBox}>
-                            <Pressable onPress={() => setCategory('New CateGory')}>
-                                <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                            <Pressable onPress={() => {
-                                setCategory('Fruit & Vegetable')
-                                setShow(false)
-                            }}>
-                                <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                            <Pressable onPress={() => setCategory('New CateGory')}>
-                                <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                            <Pressable onPress={() => setCategory('New CateGory')}>
-                                <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                            <Pressable onPress={() => setCategory('New CateGory')}>
-                                <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                        </View>}
-                    </View>
-                    
-                </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <FontAwesome name='search' style={{ fontSize: 22, color: Colors.White, marginRight: 25}} />
-                   <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
-                </View>
-             </View>
+           <KiloBagHeader  setCategory={setCategory} category={category} search={true} image={true} show={show} setShow={setShow}/>
             <ScrollView style={CategoryStyle.container}>
                 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 24, }}>

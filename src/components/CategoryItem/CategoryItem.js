@@ -23,7 +23,6 @@ const CategoryItem = ({categories}) => {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         />
-
   )
 }
 

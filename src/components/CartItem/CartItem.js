@@ -1,10 +1,6 @@
 import { View, Text, StyleSheet , Image, TextInput, FlatList} from 'react-native'
 import React from 'react'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import Octicons from 'react-native-vector-icons/Octicons'
 import Entypo from 'react-native-vector-icons/Entypo'
-import { Avatar, Icon, ListItem } from "@rneui/themed";
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Colors } from '../../Theme/Colors'
 import CustomButton from '../CustomButton'
 import { CartItemstyles } from '../../Styles/CartStyles/CartStyles'
@@ -55,8 +51,8 @@ const CartItem = ({ bgColor}) => {
                 <Text style={{ fontSize: 16, fontWeight: '500',  marginLeft: 10, color: 'black' }}>Apply Discount Code</Text>
             </View>
             <View style={CartItemstyles.PromoView}>
-                <TextInput placeholder='Enter promo code' style={[CartItemstyles.InputStyle, {borderColor: bgColor}]} />
-                <CustomButton title='Apply' customStyles={[CartItemstyles.ButtonStyle, {backgroundColor: bgColor}]} />
+                <TextInput placeholder='Enter promo code' style={[CartItemstyles.InputStyle, {borderColor: Colors.LightGreen}]} />
+                <CustomButton title='Apply' customStyles={[CartItemstyles.ButtonStyle, {backgroundColor: Colors.LightGreen}]} />
             </View>
         </View>
          

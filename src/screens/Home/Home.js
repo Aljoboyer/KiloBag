@@ -10,26 +10,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Carousel from "pinar";
 import { Homestyles } from '../../Styles/Home/HomeStyle';
 import BottomTab from '../../components/BottomTab';
-import DisplayHeader from '../../components/DisplayHeader/DisplayHeader'
 import { Colors } from '../../Theme/Colors';
 import CategoryItem from '../../components/CategoryItem/CategoryItem'
 import { BigDeals, categories, FreshItems } from '../../components/CategoryItem/CategoryData'
 import FreshFindItem from '../../components/FreshFindItem/FreshFindItem'
+import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
+import BottomModal from './../../components/BottomModal/BottomModal';
 
 const Home = ({ navigation }) => {
-    const [listViewRef, setListViewRef] = useState(null)
-    const [scrollIndex, setScrollIndex] = useState(0);
 
-    const PreviousButton = () => {
-        listViewRef.scrollToIndex({ index: scrollIndex, animated: true })
-      };
-    
-      const NextButton = () => {
-        listViewRef.scrollToIndex({ index: scrollIndex, animated: true })
-      };
+    const [bottomModalVisible, setBottomModalVisible] = useState(false);
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} >
-            <DisplayHeader backgroundColor={Colors.LightGreen}/>
+        <SafeAreaView style={{ flex: 1, }} >
+            <KiloBagHeader location={true} image={true}/>
             <ScrollView style={Homestyles.Homecontainer} >
                 <View style={Homestyles.searchInput}>
                     <TextInput
@@ -117,24 +110,7 @@ const Home = ({ navigation }) => {
                 </View>
                 <View style={{ marginTop: 50 , paddingBottom: 10}} >
                     <Text style={Homestyles.sectionTitle}>Fresh Finds</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 10, }}>
-                     <Pressable onPress={() => {
-                        if(scrollIndex > 0){
-                            setScrollIndex(scrollIndex - 1)
-                        }
-                        PreviousButton()}}   style={{paddingRight: 15}}>
-                         <Text>
-                            <Octicons name='chevron-left' style={{ color: Colors.LightGray, fontSize: 30,}} />
-                         </Text>
-                    </Pressable>
-                    <FreshFindItem setListViewRef={setListViewRef} items={FreshItems} />
-                    <Pressable onPress={() => { setScrollIndex(scrollIndex + 1), NextButton()}}  style={{paddingLeft: 15}}>
-                         <Text>
-                            <Octicons name='chevron-right' style={{ color: Colors.LightGray, fontSize: 30}} /> 
-                         </Text>
-                    </Pressable> 
-                </View>
-
+                    <FreshFindItem setBottomModalVisible={setBottomModalVisible}  items={FreshItems} />
                     <View style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
                         <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
@@ -142,6 +118,7 @@ const Home = ({ navigation }) => {
                 </View>
             </ScrollView>
             <BottomTab />
+            <BottomModal bottomModalVisible={bottomModalVisible} setBottomModalVisible={setBottomModalVisible} />
         </SafeAreaView>
     )
 }

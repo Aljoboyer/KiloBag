@@ -1,33 +1,27 @@
-import { View, Text, SafeAreaView, Pressable,Image, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, Pressable,Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
 import { Colors } from './../../Theme/Colors';
 import Octicons from 'react-native-vector-icons/Octicons'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { ScrollView } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import CheckBox from '@react-native-community/checkbox';
 import { Avatar, Icon, ListItem } from "@rneui/themed";
 import { CheckoutStyle } from './../../Styles/CheckoutStyle/CheckoutStyle';
+import CustomButton from '../../components/CustomButton';
+import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
 
 const Checkout = () => {
     const [isSelected, setSelection] = useState(false);
     const [expandedInstant, setExpandedInstant] = React.useState(null);
+    const GenderOption = ['Google Pay', 'PhonePe', 'PayPal', 'Wallet'];
+    const [gender, setGender] = useState(null);
 
   return (
-    <SafeAreaView>
-        <View style={[CategoryStyle.header, { backgroundColor: Colors.LightGreen, paddingVertical: 30}]}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Pressable onPress={() => navigation.goBack()}>
-                    <Octicons name='chevron-left' style={{fontSize: 25 , color: Colors.White}} />
-                </Pressable>
-                <Text style={{ fontSize: 19, marginLeft: 15, fontWeight: '500', color: Colors.White}}>Checkout </Text>
-                
-            </View>
-        </View>
+    <SafeAreaView style={{ flex: 1}}>
+        <KiloBagHeader title='Checkout'/>
 
-        <ScrollView style={{paddingHorizontal: 20}}>
+        <ScrollView style={{paddingHorizontal: 20, paddingBottom: 40}}>
              <Text style={{color: 'black', fontSize: 16, marginVertical: 20}}>Delivery Location <Text style={{color: 'black', fontSize: 13, color: Colors.LightGreen}}>for instant</Text></Text>
             <Pressable style={CheckoutStyle.LocationView}>
                 <View style={CheckoutStyle.LocationIconBox}>
@@ -53,6 +47,23 @@ const Checkout = () => {
                 </View>
                 <Octicons name='chevron-right' style={{fontSize: 30 , color: Colors.LightGreen}} />
             </Pressable>
+
+            <View style={{marginTop: 30}}>
+                <Text style={{fontSize: 14, color: 'black', marginBottom: 20}}>Or Pay Via</Text>
+                {
+                GenderOption.map(option => {
+                const selected = option === gender
+                    return (
+                    <Pressable onPress={() => setGender(option)} style={CheckoutStyle.radioContent}>
+                        <View style={[CheckoutStyle.outerCircle, selected && CheckoutStyle.selectedOuterCircle]}>
+                            <View style={[CheckoutStyle.innerCircle, selected && CheckoutStyle.selectedInnerCircle]}></View>
+                        </View>
+                        <Text style={{fontSize: 14, fontWeight: '500', color: 'black'}}>{option}</Text>
+                    </Pressable>
+                    )
+                })
+                }
+            </View>
 
             <View style={CheckoutStyle.DeliveryContainer}>
                 <ListItem.Accordion
@@ -101,7 +112,16 @@ const Checkout = () => {
                     </ListItem>
                 </ListItem.Accordion>
             </View>
- 
+            
+            <View style={CheckoutStyle.PlaceOrderContainer}>
+                <View style={CheckoutStyle.PlaceOrderView}>
+                    <View>
+                        <Text style={{fontSize: 15, fontWeight: '400', color: 'black'}}>Total</Text>
+                        <Text  style={{fontSize: 17, fontWeight: '500', color: 'black', marginTop: 5}}>$452</Text>
+                    </View>
+                    <CustomButton title="Place Order" customStyles={CheckoutStyle.PlaceOrderBtn} />
+                </View>
+            </View>
         </ScrollView>
     </SafeAreaView>
   )

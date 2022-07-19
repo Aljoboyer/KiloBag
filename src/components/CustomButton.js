@@ -10,7 +10,7 @@ const CustomButton = ({ title, onPress , customStyles}) => {
             <Text
                 style={{
                     color: '#FFFFFF',
-                    fontSize: 16,
+                    fontSize: 15,
                     padding: 15,
                     textAlign: 'center',
                     fontWeight: '700',

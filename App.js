@@ -32,6 +32,10 @@ import PackingLove from './src/screens/Login/PackingLove/PackingLove';
 import Home from './src/screens/Home/Home';
 import CategoryProduct from './src/screens/CategoryProduct/CategoryProduct';
 import Checkout from './src/screens/Checkout/Checkout';
+import FreshFindsProduct from './src/screens/FreshFindsProduct/FreshFindsProduct';
+import TodayOffers from './src/screens/TodayOffers/TodayOffers';
+import Subscribe from './src/screens/Subscribe/Subscribe';
+import SearchProduct from './src/screens/SearchProduct/SearchProduct';
 
 Amplify.configure(awsconfig);
 
@@ -51,9 +55,9 @@ const App = () => {
   // console.log(signOut());
   return (
     <NavigationContainer theme={AppTheme}>
-      <Stack.Navigator initialRouteName='Checkout'  screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Checkout" component={Checkout} />
-    </Stack.Navigator> 
+      <Stack.Navigator initialRouteName='Home'  screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator> 
     </NavigationContainer>
   );
 };
@@ -67,7 +71,11 @@ export default App;
 //     <Stack.Screen name="ProductDetails" component={ProductDetails} />
 //     <Stack.Screen name="Menu" component={Menu} />
 //     <Stack.Screen name="Cart" component={Cart} />
-//<Stack.Screen name="Checkout" component={Checkout} />
+//    <Stack.Screen name="Checkout" component={Checkout} />
+//<Stack.Screen name="FreshFindsProduct" component={FreshFindsProduct} />
+//<Stack.Screen name="TodayOffers" component={TodayOffers} />
+//<Stack.Screen name="Subscribe" component={Subscribe} />
+//<Stack.Screen name="SearchProduct" component={SearchProduct} />
 //   </>) : (<>
 //     <Stack.Screen name="ChooseLanguage" component={ChooseLanguage} />
 //     {/* <Stack.Screen name="SendOTPTwo" component={SendOTPTwo} /> */}
@@ -77,3 +85,4 @@ export default App;
 // <Stack.Screen name="PackingLove" component={PackingLove} />
 //   </>)
 // }
+

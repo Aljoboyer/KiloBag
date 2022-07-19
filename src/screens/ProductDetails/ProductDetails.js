@@ -1,6 +1,5 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Pressable, Image, ImageBackground } from 'react-native'
 import React from 'react'
-import KiloBagHeader from '../../components/KiloBagHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Carousel from "pinar";
@@ -11,24 +10,12 @@ import { Colors } from '../../Theme/Colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import BottomTab from './../../components/BottomTab';
 import { ProductDetailStyle } from './../../Styles/ProductDetailsStyle/ProductDetailStyle';
+import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
 
 const ProductDetails = () => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-            <View style={[CategoryStyle.header, { backgroundColor: Colors.LightGreen}]}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Pressable onPress={() => navigation.goBack()}>
-                        <Octicons name='chevron-left' style={{fontSize: 25 , color: Colors.White}} />
-                    </Pressable>
-                    <Text style={{ fontSize: 19, marginLeft: 15, fontWeight: '500', color: Colors.White}}>Fruits </Text>
-                    
-                </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <FontAwesome name='search' style={{ fontSize: 22, color: Colors.White, marginRight: 25}} />
-                   <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
-                </View>
-             </View>
-
+            <KiloBagHeader backbtn={true} search={true} image={true}/>
             <ScrollView style={ProductDetailStyle.container}>
               
                 <View style={{height: 80, width: 80, alignSelf: 'flex-end'}}>

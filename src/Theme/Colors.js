@@ -6,5 +6,6 @@ export const Colors = {
     LightBlue: '#2E6CA5',
     LightGray: '#999999',
     HeaderPink: '#DB6281',
-    DarkGray: '#4B4B4B'
+    DarkGray: '#4B4B4B',
+    SectionBorderColor: '#E9E9E9'
 };
