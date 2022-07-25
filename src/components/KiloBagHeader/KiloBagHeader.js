@@ -3,11 +3,12 @@ import React from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { Colors } from '../../Theme/Colors';
 import Octicons from 'react-native-vector-icons/Octicons'
+import Entypo from 'react-native-vector-icons/Octicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CategoryStyle } from './../../Styles/CategoryStyle/CategoryStyle';
 
-const KiloBagHeader = ({ category,setCategory, location, title, search, image, backbtn, show, setShow}) => {
+const KiloBagHeader = ({ category,setCategory, location, title, search, image, backbtn, show, setShow, cross}) => {
   return (
    <View style={styles.HeaderContainer}>
      <View style={styles.deliverLocation}>
@@ -65,7 +66,11 @@ const KiloBagHeader = ({ category,setCategory, location, title, search, image, b
             <Octicons name='chevron-left' style={{fontSize: 25 , color: Colors.White}} />
         </Pressable>
         }
-
+        {
+            cross &&  <Pressable >
+            <AntDesign name='close' style={{fontSize: 30 , color: 'white'}} />
+            </Pressable>
+        }
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {
                 search &&   <Pressable>

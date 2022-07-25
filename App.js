@@ -1,13 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React, { useState } from 'react';
-import type { Node } from 'react';
 import {
   StyleSheet,
   useColorScheme,
@@ -37,6 +28,10 @@ import TodayOffers from './src/screens/TodayOffers/TodayOffers';
 import Subscribe from './src/screens/Subscribe/Subscribe';
 import SearchProduct from './src/screens/SearchProduct/SearchProduct';
 import ChooseLocation from './src/screens/ChooseLocation/ChooseLocation';
+import SubscribeSuccess from './src/screens/Subscribe/SubscribeSuccess';
+import RequestDelivery from './src/screens/ChooseLocation/RequestDelivery';
+import MyOrders from './src/screens/MyOrders/MyOrders';
+import OrderDetails from './src/screens/MyOrders/OrderDetails';
 
 Amplify.configure(awsconfig);
 
@@ -56,8 +51,9 @@ const App = () => {
   // console.log(signOut());
   return (
     <NavigationContainer theme={AppTheme}>
-      <Stack.Navigator initialRouteName='ChooseLocation'  screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ChooseLocation" component={ChooseLocation} />
+      <Stack.Navigator initialRouteName='OrderDetails'  screenOptions={{ headerShown: false }}>
+     
+        <Stack.Screen name="OrderDetails" component={OrderDetails} />
       </Stack.Navigator> 
     </NavigationContainer> 
   );
@@ -77,6 +73,10 @@ export default App;
 //<Stack.Screen name="TodayOffers" component={TodayOffers} />
 //<Stack.Screen name="Subscribe" component={Subscribe} />
 //<Stack.Screen name="SearchProduct" component={SearchProduct} />
+//<Stack.Screen name="ChooseLocation" component={ChooseLocation} />
+//<Stack.Screen name="SubscribeSuccess" component={SubscribeSuccess} />
+//<Stack.Screen name="RequestDelivery" component={RequestDelivery} />
+//<Stack.Screen name="MyOrders" component={MyOrders} />
 //   </>) : (<>
 //     <Stack.Screen name="ChooseLanguage" component={ChooseLanguage} />
 //     {/* <Stack.Screen name="SendOTPTwo" component={SendOTPTwo} /> */}

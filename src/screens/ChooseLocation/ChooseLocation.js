@@ -15,6 +15,8 @@ export default function ChooseLocation() {
     const [isSelected, setIsSelected] = useState(false);
     const [bottomModalVisible, setBottomModalVisible] = useState(false);
     const show = false
+    const showtwo = false
+    const come = false
 
     const data = [
         {id: 'd',name: 'Home', address: 'Nelamangala - Majestic Service Rd, Manjunatha Nagar, Bengaluru, Karnataka 560073'},
@@ -52,10 +54,12 @@ export default function ChooseLocation() {
     <SafeAreaView style={{flex: 1}}>
         <KiloBagHeader  title='Choose Location'/>
         <ScrollView style={{padding: 25}}>
-            <View style={ChooseLocationStyle.InputView}>
+            {
+                showtwo &&  <View style={ChooseLocationStyle.InputView}>
                 <TextInput style={{height: 55}} placeholder='Choose your location' />
                 <FontAwesome name='search' style={{ fontSize: 18, color: Colors.LightGreen }} />
             </View>
+            }
 
             {
                 show ||   <View style={ChooseLocationStyle.CurrentLocationView}>
@@ -79,7 +83,7 @@ export default function ChooseLocation() {
            }
 
          {
-            show &&    <FlatList
+            showtwo &&    <FlatList
             data={[1,2,3,4,5]}
             renderItem={SearchItem}
             keyExtractor={item => item}
@@ -88,6 +92,14 @@ export default function ChooseLocation() {
             showsVerticalScrollIndicator={false}
             />
          }
+
+        {
+            come && <View style={ChooseLocationStyle.ComingView}>
+            <Image source={require('../../../assets/commingSoon.png')} />
+            <Text style={ChooseLocationStyle.ComingTitle}>COMING SOON...</Text>
+            <CustomButton title="Request Delivery" customStyles={{alignSelf: 'center', width:  180, borderRadius: 10}}/>
+        </View>
+        }
 
         </ScrollView>
         

@@ -46,5 +46,7 @@ export const ChooseLocationStyle = StyleSheet.create({
     backgroundColor: "white",
     paddingHorizontal: 30,
     paddingVertical: 10
-    }
+    },
+    ComingTitle:{fontSize: 22, fontWeight: '600', color: '#303030', paddingVertical: 20},
+    ComingView:{justifyContent: 'center', alignItems: 'center', height: 500}
 });
