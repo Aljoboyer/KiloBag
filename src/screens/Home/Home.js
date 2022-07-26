@@ -58,29 +58,22 @@ const Home = ({ navigation }) => {
                         <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 , color: Colors.Black, }} />
                     </View>
                 </View>
-                <View style={{ marginTop: 50 }} >
-                    <Text style={Homestyles.sectionTitle}>Big Deals <Image source={require('../../../assets/BigDeal.png')}/></Text>
-                    <CategoryItem categories={BigDeals} />
+                <View style={{ marginTop: 50 }}>
+                    <Text style={Homestyles.sectionTitle}>Trending Near You <Image source={require('../../../assets/neartoyou.png')}/></Text>
+                    <FreshFindItem setBottomModalVisible={setBottomModalVisible}  items={FreshItems} />
                     <View style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
-                        <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
-                    </View>
-                </View>  
-                <View style={{ marginTop: 50 }} >
-                    <Text style={Homestyles.sectionTitle}>The Value Mart  <Image source={require('../../../assets/valueMart.png')}/></Text>
-                    <CategoryItem categories={BigDeals} />
-                    <View style={Homestyles.viewAll}>
-                        <Text style={Homestyles.ViewText}>View all</Text>
-                        <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
+                        <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
                     </View>
                 </View>
+      
                 <View style={{ marginTop: 50 }} >
-                    <Text style={Homestyles.sectionTitle}>Shop and Save <Image source={require('../../../assets/Shop&Save.png')}/></Text>
+                    <Text style={Homestyles.sectionTitle}>Top Categories <Image source={require('../../../assets/topcat.png')}/></Text>
                     <CategoryItem categories={BigDeals} />
                     
                     <View style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
-                        <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
+                        <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
                     </View>
                 </View>
                 <View style={{ marginTop: 50 }} >
@@ -105,7 +98,7 @@ const Home = ({ navigation }) => {
                 </View>
                     <View style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
-                        <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
+                        <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
                     </View>
                 </View>
                 <View style={{ marginTop: 50 , paddingBottom: 10}} >
@@ -113,7 +106,7 @@ const Home = ({ navigation }) => {
                     <FreshFindItem setBottomModalVisible={setBottomModalVisible}  items={FreshItems} />
                     <View style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
-                        <Octicons name='chevron-right' style={{ fontSize: 20, marginLeft: 10 }} />
+                        <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
                     </View>
                 </View>
             </ScrollView>

@@ -8,13 +8,13 @@ import { BottomModalStyle } from '../../Styles/ModalStyle/ModalStyle';
 export default function BottomModal({bottomModalVisible, setBottomModalVisible}) {
     const ProductItem = ({item}) => (
         <View style={BottomModalStyle.ContentView}>
-            <Text style={{fontSize: 15, fontWeight: '500', color: 'black'}}>Milk <Text style={{fontSize: 12, fontWeight: '500', color: Colors.LightGreen}}>500ml</Text></Text>
+            <Text style={{fontSize: 14, fontWeight: '500', color: 'black'}}>Milk <Text style={{fontSize: 12, fontWeight: '500', color: Colors.LightGreen}}>500ml</Text></Text>
 
-            <Text style={{fontSize: 15, fontWeight: '500', color: 'black', marginVertical: 10}}>$21 <Text style={{fontSize: 15, fontWeight: '500', color: Colors.LightGray, textDecorationLine: 'line-through'}}>$21</Text></Text>
+            <Text style={{fontSize: 15, fontWeight: '500', color: 'black', marginVertical: 10}}>$21 <Text style={{fontSize: 14, fontWeight: '500', color: Colors.LightGray, textDecorationLine: 'line-through'}}>$21</Text></Text>
 
             <View style={{flexDirection: 'row', justifyContent: 'space-between' , alignItems: 'center'}}>
                 <Pressable  style={BottomModalStyle.AmountBtn}>
-                    <Text style={{color: Colors.DarkGray, fontSize: 15}}>Subscribe @20</Text>
+                    <Text style={{color: Colors.DarkGray, fontSize: 11}}>Subscribe @20</Text>
                 </Pressable>
 
                 <Pressable  style={BottomModalStyle.BuyNowbtn}>

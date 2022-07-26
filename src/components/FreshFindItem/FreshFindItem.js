@@ -12,22 +12,22 @@ const FreshFindItem = ({items, setBottomModalVisible}) => {
     
         <View  style={FreshItemStyle.CategoryItemView}>
             <View style={FreshItemStyle.categories}>
-                <Image style={{width: '80%', height: '80%'}} source={require('../../../assets/Eggpland.png')}/>
+                <Image style={{width: 56, height: 55}} source={require('../../../assets/Eggpland.png')}/>
             </View>
             <View  style={FreshItemStyle.itemFooter}>
                 <Text style={FreshItemStyle.categoryTitle}>{item}</Text>
                 <View style={FreshItemStyle.AmountView}>
-                    <Text style={{color: 'black', fontSize: 14, paddingVertical: 20}}>$21</Text>
+                    <Text style={{color: 'black', fontSize: 14, paddingVertical: 10}}>$21</Text>
                     <Pressable onPress={() => setBottomModalVisible(true)}  style={FreshItemStyle.AmountBtn}>
-                        <Text  style={{color: Colors.LightGreen}}>1Kg </Text>
-                        <MaterialIcons name='keyboard-arrow-down' style={{ fontSize: 20, color: Colors.LightGreen, }} />
+                        <Text  style={{color: Colors.LightGreen}}>1Kg</Text>
+                        <MaterialIcons name='keyboard-arrow-down' style={{ fontSize: 17, color: Colors.LightGreen, }} />
                     </Pressable>
                 </View> 
-                <Pressable  style={[BottomModalStyle.AmountBtn, {marginBottom: 35}]}>
-                    <Text style={{color: Colors.DarkGray, fontSize: 15}}>Subscribe @20</Text>
+                <Pressable  style={FreshItemStyle.subscribeBtn}>
+                    <Text style={{color: Colors.DarkGray, fontSize: 11, fontWeight: '500'}}>Subscribe @20</Text>
                 </Pressable>
                 <Pressable  style={FreshItemStyle.BuyNowbtn}>
-                    <Text style={{color: 'white', fontSize: 15, alignItems: 'center'}}>Buy Now</Text>
+                    <Text style={{color: 'white', fontSize: 11, alignItems: 'center'}}>Buy Now</Text>
                 </Pressable>
             </View>
         </View> 
@@ -42,7 +42,6 @@ const FreshFindItem = ({items, setBottomModalVisible}) => {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         />
-
   )
 }
 

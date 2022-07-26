@@ -57,7 +57,7 @@ const KiloBagHeader = ({ category,setCategory, location, title, search, image, b
             <Pressable onPress={() => navigation.goBack()}>
                 <Octicons name='chevron-left' style={{fontSize: 25 , color: Colors.White}} />
             </Pressable>
-            <Text style={{ fontSize: 19, marginLeft: 15, fontWeight: '500', color: Colors.White}}>{title}</Text>
+            <Text style={{ fontSize: 18, marginLeft: 15, fontWeight: '500', color: Colors.White}}>{title}</Text>
             </View>
         }
 

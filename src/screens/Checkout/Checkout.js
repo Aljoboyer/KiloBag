@@ -14,7 +14,7 @@ import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
 const Checkout = () => {
     const [isSelected, setSelection] = useState(false);
     const [expandedInstant, setExpandedInstant] = React.useState(null);
-    const GenderOption = ['Google Pay', 'PhonePe', 'PayPal', 'Wallet'];
+    const PaymentOption = ['UPI','Cards','Netbanking', 'PhonePe', 'PayPal', 'Wallet'];
     const [gender, setGender] = useState(null);
 
   return (
@@ -34,24 +34,10 @@ const Checkout = () => {
                 <Octicons name='chevron-right' style={{fontSize: 30 , color: Colors.LightGreen}} />
             </Pressable>
 
-            <Text style={{color: 'black', fontSize: 16, marginVertical: 20}}>Payment Method</Text>
-            <Pressable style={CheckoutStyle.LocationView}>
-                <View style={{flexDirection: 'row'}}>
-                    <View style={CheckoutStyle.CardIconBox}>
-                        <Text  style={{color: 'white', fontSize: 13, fontWeight: '400'}}>Visa</Text>
-                    </View>
-                    <View style={{paddingLeft: 20}}>
-                        <Text style={{color: 'black', fontSize: 13, fontWeight: '500'}}>Visa Classic</Text>
-                        <Text style={{color: 'black', fontSize: 13, fontWeight: '500', paddingTop: 5}}>**** **** **** 5664</Text>
-                    </View>
-                </View>
-                <Octicons name='chevron-right' style={{fontSize: 30 , color: Colors.LightGreen}} />
-            </Pressable>
-
             <View style={{marginTop: 30}}>
-                <Text style={{fontSize: 14, color: 'black', marginBottom: 20}}>Or Pay Via</Text>
+                <Text style={{fontSize: 14, color: 'black', marginBottom: 15}}>Payment Method</Text>
                 {
-                GenderOption.map(option => {
+                PaymentOption.map(option => {
                 const selected = option === gender
                     return (
                     <Pressable onPress={() => setGender(option)} style={CheckoutStyle.radioContent}>
@@ -112,7 +98,6 @@ const Checkout = () => {
                     </ListItem>
                 </ListItem.Accordion>
             </View>
-            
             <View style={CheckoutStyle.PlaceOrderContainer}>
                 <View style={CheckoutStyle.PlaceOrderView}>
                     <View>
@@ -121,7 +106,7 @@ const Checkout = () => {
                     </View>
                     <CustomButton title="Place Order" customStyles={CheckoutStyle.PlaceOrderBtn} />
                 </View>
-            </View>
+        </View>
         </ScrollView>
     </SafeAreaView>
   )

@@ -36,14 +36,14 @@ const ProductDetails = () => {
                 <View style={ProductDetailStyle.AmountView}>
                     <View style={{ flexDirection: 'row', }}>
 
-                        <View style={{ justifyContent: 'space-between', paddingVertical: 5, }}>
+                        <View style={{ justifyContent: 'space-between', paddingBottom: 5, }}>
                             <Text style={{fontSize: 17, fontWeight: '700', color: 'black'}}>Product Name</Text>
-                            <Text style={{ marginVertical: 15, color: Colors.Black,fontWeight: '700',  }}>$209 {"   "}<Text style={{ textDecorationLine: 'line-through', marginLeft: 20, color: Colors.LightGray }}>$209</Text></Text>
+                            <Text style={{ marginVertical: 10, color: Colors.Black,fontWeight: '700',  }}>$209 {"   "}<Text style={{ textDecorationLine: 'line-through', marginLeft: 20, color: Colors.LightGray }}>$209</Text></Text>
 
                             <Text  style={{ marginVertical: 5, color: Colors.LightGreen,fontWeight: '700',  }}>1kg {" "} <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
 
                             <View style={ProductDetailStyle.SubscribeBtn}>
-                                <Text style={{color: Colors.LightGreen}}>Subscribe @20</Text>
+                                <Text style={{color: Colors.LightGreen, fontSize: 12}}>Subscribe @20</Text>
                             </View>
                         </View>
                     </View>

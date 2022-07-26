@@ -39,8 +39,9 @@ export const CheckoutStyle = StyleSheet.create({
         borderColor: Colors.LightGreen,
       },
       PlaceOrderBtn:{
-        width: 150
+        width: 170,
+        height: 45
       },
     PlaceOrderView:{flexDirection: 'row', justifyContent: 'space-between',  paddingHorizontal: 18, paddingVertical: 20, borderTopColor: Colors.LightGray, borderTopWidth: 1},
-    PlaceOrderContainer: {flex: 1, justifyContent: 'flex-end', paddingTop: 100}
+    PlaceOrderContainer: { marginTop: 60, paddingBottom: 10,}
 });

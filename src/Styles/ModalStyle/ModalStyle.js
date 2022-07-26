@@ -8,7 +8,9 @@ export const ModalStyle = StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
       marginTop: 22,
+  
     },
+
     modalView: {
       margin: 20,
       backgroundColor: "white",
@@ -26,6 +28,7 @@ export const ModalStyle = StyleSheet.create({
       height: 300,
       width: 350,
       justifyContent: 'center',
+   
     },
     buttons: {
       borderRadius: 10,
@@ -72,8 +75,8 @@ export const ModalStyle = StyleSheet.create({
     textStyle: {
       fontSize: 22
     },
-    AmountBtn:{ borderColor: Colors.LightGreen, paddingVertical: 7, paddingHorizontal: 25, borderRadius: 5, alignItems: 'center', borderWidth: 1 , paddingHorizontal: 10},
+    AmountBtn:{ borderColor: Colors.LightGreen, borderRadius: 5, alignItems: 'center', borderWidth: 1 , width: 88, height: 27, justifyContent: 'center', alignItems: 'center'},
     ContentView: {paddingHorizontal: 10, paddingVertical: 10, marginTop: 15, borderColor: Colors.SectionBorderColor, borderWidth: 1, borderRadius: 10},
 
-    BuyNowbtn:{backgroundColor: Colors.LightGreen, paddingVertical: 10, paddingHorizontal: 25, borderRadius: 5}
+    BuyNowbtn:{backgroundColor: Colors.LightGreen,borderRadius: 5, height: 27, width: 95, justifyContent: 'center', alignItems: 'center'}
 })

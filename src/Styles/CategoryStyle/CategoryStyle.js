@@ -49,8 +49,8 @@ export const CategoryStyle = StyleSheet.create({
         paddingVertical: 20
     },
     CategoryView:{
-        height: 110,
-        width: 110,
+        height:  64,
+        width: 64,
         backgroundColor: "white",
         borderRadius: 100,
         shadowColor: "#000",
@@ -70,8 +70,8 @@ export const CategoryStyle = StyleSheet.create({
    
     },
     imageView: {
-        height: 80,
-        width: 80,
+        height:  55,
+        width: 40,
     },
     DropDownBox: {backgroundColor: 'white', position: 'absolute', left: 10, width: 160, top: 30, zIndex: 2, justifyContent: 'center', alignItems: 'center', paddingVertical: 10, elevation: 2, borderRadius: 10},
     DropDownText:{

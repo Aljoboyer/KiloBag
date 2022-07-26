@@ -7,7 +7,7 @@ const CategoryItem = ({categories}) => {
       
             <Pressable style={{ marginVertical: 16,  marginHorizontal: 10}}  onPress={() => navigation.navigate('Category')}>
                 <View style={CategoryStyle.categories}>
-                    <Image style={{width: '80%', height: '80%'}} source={require('../../../assets/vegetable.png')}/>
+                    <Image style={{width: 70, height: 53}} source={require('../../../assets/vegetable.png')}/>
                 </View>
                 <Text style={CategoryStyle.categoryTitle}>{item}</Text>
             </Pressable>
@@ -15,9 +15,9 @@ const CategoryItem = ({categories}) => {
   return (
     
         <FlatList
-        numColumns={3}
+        numColumns={4}
         data={categories}
-        renderItem={CategoryItem} 
+        renderItem={CategoryItem}  
         keyExtractor={item => item.index}
         horizontal={false}
         showsHorizontalScrollIndicator={false}
@@ -33,9 +33,8 @@ const CategoryStyle = StyleSheet.create({
 
     categories: {
         backgroundColor: 'white',
-        height: 100,
-        width: 100,
-        borderRadius: 8,
+        height: 72,
+        width: 72,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -43,7 +42,7 @@ const CategoryStyle = StyleSheet.create({
         color: Colors.Black,
         textAlign: 'center',
         fontWeight: '500',
-        marginTop: 5,
+        fontSize: 10
     },
     categoryContainer: {
         flexDirection: 'row',

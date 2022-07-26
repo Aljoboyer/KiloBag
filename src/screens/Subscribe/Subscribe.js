@@ -61,32 +61,11 @@ export default function Subscribe() {
                             <Text style={{color: Colors.LightGreen, fontSize: 14, marginLeft: 15, }}>2500ml <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
                         </Pressable>
                     </View>
-                    <Pressable  style={SubscribeStyle.AmountBtn}>
-                        <Text style={{color: Colors.DarkGray, fontSize: 15}}>Subscribe @20</Text>
-                    </Pressable>
+                    <Text style={{color: Colors.LightGreen, fontSize: 12, fontWeight: '600'}}>Subscribe @20</Text>
+                 
                 </View>
             </View>
-
-            {
-                isbuy ?   <View  style={{ alignSelf: 'flex-end'}}>
-                <Pressable style={SubscribeStyle.ButNowBtn}>
-                    <Text style={{color: 'white', fontSize: 14}}>Buy Now</Text>
-                </Pressable>
-            </View> :      <View style={{ justifyContent: 'space-between', padding: 2, alignSelf: 'flex-end' }}>
-                 
-                 <View style={{ flexDirection: 'row' }}>
-                     <View style={CartItemstyles.AmountIcon}>
-                         <Entypo name='minus' style={{ color: 'white', fontSize: 16, fontWeight: '600' }} />
-                     </View>
-                     <Text style={{ marginHorizontal: 12, color: 'black' }}>2</Text>
-                     <View style={CartItemstyles.AmountIcon}>
-                         <Entypo name='plus' style={{ color: 'white', fontSize: 16, fontWeight: '600', }} />
-                     </View>
-                 </View>
-             </View>
-            }
           
-       
         </View>
 
         <View style={SubscribeStyle.DeliverySelectView}>
@@ -188,7 +167,7 @@ export default function Subscribe() {
         </View>
 
  
-         <CustomButton title='Subscribe' customStyles={{alignSelf: 'flex-end', width: 150, marginVertical: 30}}/>
+         <CustomButton title='Subscribe' customStyles={{alignSelf: 'center', width: '95%', marginBottom: 5, marginTop: 30}}/>
        
      </ScrollView> 
      <BottomTab/>

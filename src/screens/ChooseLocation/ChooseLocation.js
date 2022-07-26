@@ -15,8 +15,8 @@ export default function ChooseLocation() {
     const [isSelected, setIsSelected] = useState(false);
     const [bottomModalVisible, setBottomModalVisible] = useState(false);
     const show = false
-    const showtwo = false
-    const come = false
+    const showtwo = true
+    const come = true
 
     const data = [
         {id: 'd',name: 'Home', address: 'Nelamangala - Majestic Service Rd, Manjunatha Nagar, Bengaluru, Karnataka 560073'},

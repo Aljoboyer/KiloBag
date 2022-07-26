@@ -7,7 +7,7 @@ import CustomButton from './../../components/CustomButton';
 const InputContainer = ({label, OnChangeText}) => {
     return (
         <View style={{marginBottom: 15}}>
-            <Text style={{fontSize: 14, fontWeight: '400', color: 'black'}}>{label}</Text>
+            <Text style={{ fontSize: 14, fontWeight: '400', color: 'black'}}>{label}</Text>
             <TextInput style={{height: 45, borderRadius: 10, borderColor: '#C8C8C8', borderWidth: 1, marginTop: 10}} onChangeText={OnChangeText} />
         </View>
     )

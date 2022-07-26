@@ -48,6 +48,7 @@ export const Homestyles = StyleSheet.create({
         // marginBottom: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 10
     },
     offerContainer: {
         flexDirection: 'row',
@@ -63,7 +64,7 @@ export const Homestyles = StyleSheet.create({
         borderRadius: 8,
         marginRight: 24,
     },
-    sectionTitle: { fontSize: 17, color: Colors.Black, fontWeight: '700' },
+    sectionTitle: { fontSize: 15, color: Colors.Black, fontWeight: '500' },
     //dummy slider design
     slide1: {
         flex: 1,
@@ -95,6 +96,6 @@ export const Homestyles = StyleSheet.create({
         color: Colors.Black,
         marginVertical: 20
     },
-    ViewText: { fontSize: 18, fontWeight: '500', color: Colors.Black, },
+    ViewText: { fontSize: 14, fontWeight: '500', color: Colors.Black,  },
 
 })

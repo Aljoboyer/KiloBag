@@ -26,12 +26,12 @@ const CategoryProduct = ({ navigation }) => {
 
     const CateGoryItem = ({item}) => (
         <View style={CategoryStyle.CategoryItemContainer}>
-            <View  style={CategoryStyle.CategoryView}>
+            <View  style={CategoryStyle.CategoryView}> 
                 <View style={CategoryStyle.imageView}>
                     <Image style={{height: '100%', width: '100%'}} source={require('../../../assets/vegetable.png')} />
                 </View>
             </View>
-            <Text style={{alignSelf: 'center', color: 'black', fontSize: 17, fontWeight: '500'}}>{item}</Text>
+            <Text style={{alignSelf: 'center', color: 'black', fontSize: 12, fontWeight: '500'}}>{item}</Text>
         </View>
         )
     

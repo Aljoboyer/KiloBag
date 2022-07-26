@@ -51,7 +51,7 @@ const ChooseLanguage = ({ navigation }) => {
                         }
                     }} />
                 </View>
-                <Modals setModalVisible={setModalVisible} modalVisible={modalVisible} />
+                <Modals setModalVisible={setModalVisible} modalVisible={modalVisible} lang={true} />
             </View>
         </View>
     )

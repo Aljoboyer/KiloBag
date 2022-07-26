@@ -25,17 +25,17 @@ const  CategoryProductItem = ({subscription, setBottomModalVisible}) =>  {
                         </View>
 
                         <View style={{flexDirection: 'row', marginVertical: 10}}>
-                            <Text style={{color: 'black', fontSize: 15, fontWeight: '500', }}>$21</Text>
+                            <Text style={{color: 'black', fontSize: 14, fontWeight: '500', }}>$21</Text>
                             <Pressable onPress={() => setBottomModalVisible(true)} >
-                                    <Text style={{color: Colors.LightGreen, fontSize: 14, marginLeft: 15}}>2500ml <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
+                                    <Text style={{color: Colors.LightGreen, fontSize: 11, marginLeft: 15, fontWeight: '600'}}>2500ml <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
                             </Pressable>
                         </View>
 
                         {
                             subscription ?     <View  style={styles.AmountBtntow}>
-                            <Text style={{color: '#B7B7B7', fontSize: 15}}>Subscribe @20</Text>
+                            <Text style={{color: '#B7B7B7', fontSize: 10}}>Subscribe @20</Text>
                         </View> :     <Pressable  style={styles.AmountBtn}>
-                            <Text style={{color: Colors.DarkGray, fontSize: 15}}>Subscribe @20</Text>
+                            <Text style={{color: Colors.DarkGray, fontSize: 10}}>Subscribe @20</Text>
                         </Pressable>
                         }
                     
@@ -59,13 +59,13 @@ const  CategoryProductItem = ({subscription, setBottomModalVisible}) =>  {
             {
             item == 2 &&  <View  style={{ justifyContent: 'flex-end', paddingBottom: 5 }}>
             <Pressable style={styles.ButNowBtn}>
-                <Text style={{color: 'white', fontSize: 14}}>Buy Now</Text>
+                <Text style={{color: 'white', fontSize: 12}}>Buy Now</Text>
             </Pressable>
         </View>
             }
             {
                 item == 3 && <View  style={{ justifyContent: 'flex-end', paddingBottom: 5 }}>
-            <Text style={{color: Colors.LightPink , fontSize: 13, paddingLeft: 10, fontWeight: '700'}}>OUT OF STOCK</Text>
+            <Text style={{color: Colors.LightPink , fontSize: 12, paddingLeft: 10, fontWeight: '700'}}>OUT OF STOCK</Text>
             </View> 
                 
             }
@@ -98,14 +98,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 1,
     elevation: 1, },
-    AmountBtn:{ borderColor: Colors.LightGreen, padding: 4, borderRadius: 8, alignItems: 'center', borderWidth: 1 , paddingHorizontal: 10},
+    AmountBtn:{ borderColor: Colors.LightGreen, borderRadius: 5,  borderWidth: 1 , width: 88, height: 27, justifyContent: 'center', alignItems: 'center'},
     AmountViewStyle:{width: 200,},
     ModalText:{fontSize: 20, fontWeight: '500', color: Colors.Black, marginTop: 10, borderColor: Colors.LightGreen, borderWidth: 1, paddingHorizontal: 15, paddingVertical: 5},
     ButNowBtn:{
-        paddingHorizontal: 10,
-        paddingVertical: 10,
         backgroundColor: Colors.LightGreen,
-        borderRadius: 5
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 27,
+        width: 88
     },
-    AmountBtntow:{borderColor: '#B7B7B7', padding: 4, borderRadius: 8, alignItems: 'center', borderWidth: 1 , paddingHorizontal: 10}
+    AmountBtntow:{borderColor: '#B7B7B7',borderRadius: 5,  borderWidth: 1 , width: 88, height: 27, justifyContent: 'center', alignItems: 'center'}
 })
