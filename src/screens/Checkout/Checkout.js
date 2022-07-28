@@ -15,7 +15,7 @@ const Checkout = () => {
     const [isSelected, setSelection] = useState(false);
     const [expandedInstant, setExpandedInstant] = React.useState(null);
     const PaymentOption = ['UPI','Cards','Netbanking', 'PhonePe', 'PayPal', 'Wallet'];
-    const [gender, setGender] = useState(null);
+    const [options, setOptions] = useState(null);
 
   return (
     <SafeAreaView style={{ flex: 1}}>
@@ -38,9 +38,9 @@ const Checkout = () => {
                 <Text style={{fontSize: 14, color: 'black', marginBottom: 15}}>Payment Method</Text>
                 {
                 PaymentOption.map(option => {
-                const selected = option === gender
+                const selected = option === options
                     return (
-                    <Pressable onPress={() => setGender(option)} style={CheckoutStyle.radioContent}>
+                    <Pressable onPress={() => setOptions(option)} style={CheckoutStyle.radioContent}>
                         <View style={[CheckoutStyle.outerCircle, selected && CheckoutStyle.selectedOuterCircle]}>
                             <View style={[CheckoutStyle.innerCircle, selected && CheckoutStyle.selectedInnerCircle]}></View>
                         </View>

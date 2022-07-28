@@ -5,7 +5,6 @@ import { Colors } from './../../Theme/Colors';
 import { MysubscriptionStyle } from './../../Styles/MySubscription/MySubscription';
 import Modals from '../../components/Modals/Modals';
 
-
 const Buttons = ({title, bg, img, OnPress}) => {
     return (
         <Pressable onPress={OnPress} style={[MysubscriptionStyle.ButtonStyle, {backgroundColor: bg}]}>
@@ -18,7 +17,7 @@ const Buttons = ({title, bg, img, OnPress}) => {
 } 
 export default function Mysubscription() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [deletes, setDeletes] = useState('')
+    const [option, setOption] = useState('')
 
     const SubscriptionProduct = ({item}) => (
         <View style={MysubscriptionStyle.ProductMainView}>
@@ -40,9 +39,12 @@ export default function Mysubscription() {
                 <View style={MysubscriptionStyle.BtnView}>
                     <Buttons OnPress={() => {
                         setModalVisible(true)
-                        setDeletes('delete')
+                        setOption('delete')
                     }} title="DELETE" bg={Colors.LightGreen} img={require('../../../assets/delete.png')}/>
-                    <Buttons title="MODIFY" bg={Colors.LightGreen} img={require('../../../assets/pencil.png')}/>
+                    <Buttons   OnPress={() => {
+                        setModalVisible(true)
+                        setOption('modify')
+                    }} title="MODIFY" bg={Colors.LightGreen} img={require('../../../assets/pencil.png')}/>
                     {
                         item == 4 || <Buttons title="PAUSE" bg={Colors.LightGreen} img={require('../../../assets/pause.png')} />
                     }
@@ -65,7 +67,8 @@ export default function Mysubscription() {
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}
             />
-             <Modals deletes={deletes} modalVisible={modalVisible} setModalVisible={setModalVisible} /> 
+             <Modals option={option} modalVisible={modalVisible} setModalVisible={setModalVisible} /> 
+        
         </View>
 
        

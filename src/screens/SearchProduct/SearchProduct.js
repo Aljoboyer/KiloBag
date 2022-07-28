@@ -14,8 +14,8 @@ const {width, height } = Dimensions.get("window");
 export default function SearchProduct() {
     const TopSearchItem = ["Milk", "Cookies", "Apple", "Watermelon", "Mustard Oil", "Flour"];
     const topsearch = false;
-    const searchResult = true;
-    const result =  false;
+    const searchResult = false;
+    const result =  true;
     
     const SearchData = [
         {product:  "Milk Powder", subsciption:"in Instant"},

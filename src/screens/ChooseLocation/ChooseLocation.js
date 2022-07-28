@@ -14,9 +14,9 @@ import { ChooseLocationStyle } from './../../Styles/ChooseLocationStyle/ChooseLo
 export default function ChooseLocation() {
     const [isSelected, setIsSelected] = useState(false);
     const [bottomModalVisible, setBottomModalVisible] = useState(false);
-    const show = false
-    const showtwo = true
-    const come = true
+    const show = true
+    const showtwo = false
+    const come = false
 
     const data = [
         {id: 'd',name: 'Home', address: 'Nelamangala - Majestic Service Rd, Manjunatha Nagar, Bengaluru, Karnataka 560073'},
@@ -62,14 +62,14 @@ export default function ChooseLocation() {
             }
 
             {
-                show ||   <View style={ChooseLocationStyle.CurrentLocationView}>
+                show &&   <View style={ChooseLocationStyle.CurrentLocationView}>
                 <Image source={require('../../../assets/currentLocation.png')} />
                 <Text style={ChooseLocationStyle.CurrentTitle}>Use Current Location</Text>
             </View>
             }
          
            {
-            show ||  <View style={{paddingBottom: 30}}>
+            show &&  <View style={{paddingBottom: 30}}>
             <Text style={[ChooseLocationStyle.CurrentTitle, {fontWeight: '500', paddingBottom: 10}]}>Saved Address</Text>
             <FlatList
             data={data}
@@ -148,7 +148,7 @@ export default function ChooseLocation() {
         </Modal>
 
         {
-            show || <CustomButton onPress={() => setBottomModalVisible(true)}title="+ ADD ADDRESS" customStyles={ChooseLocationStyle.AddBtn} />
+            show && <CustomButton onPress={() => setBottomModalVisible(true)}title="+ ADD ADDRESS" customStyles={ChooseLocationStyle.AddBtn} />
         }
 
   

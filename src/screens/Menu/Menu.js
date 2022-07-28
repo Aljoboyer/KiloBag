@@ -5,23 +5,16 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import CustomButton from '../../components/CustomButton'
 import Octicons from 'react-native-vector-icons/Octicons'
 import { Colors } from './../../Theme/Colors';
+import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader'
+import { ModalStyle } from '../../Styles/ModalStyle/ModalStyle'
 
 const Menu = ({navigation}) => {
     const menu = [
-        "Order", "Invite Friends & Get Additional Discount", "Personal Details", "Delivery Address", "About", "Help and Support", "Terms and Condition", "Return and Refund Policy", "Who We Are"
+        "Order", "My Subscriptions", "Wallet", "Delivery Address", "Help & Faq",  "Terms and Condition", "Return and Refund Policy", "Suggestions",  "About",  "App Version"
     ]
     return (
         <SafeAreaView style={{ flex: 1,}}>
-            <View style={styles.header}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}> 
-                    <Pressable onPress={() => navigation.goBack()}>
-                        <Octicons name='chevron-left' style={{ color: Colors.LightGreen, fontSize: 25 }} />
-                    </Pressable>
-                    <Text style={{ fontSize: 20, marginLeft: 20, fontWeight: '700', color: Colors.LightGreen }}>User Profile</Text>
-                        
-                </View>
-            </View>
-
+            <KiloBagHeader title="User Profile" />
             <ScrollView style={styles.container}>
         
                 <View style={{ backgroundColor: '#F5F5F5', paddingVertical: 12, flexDirection: 'row', paddingLeft: 40 }}>
@@ -41,13 +34,13 @@ const Menu = ({navigation}) => {
                         </View>
                     })
                 }
-              
-                <View style={{ marginVertical: 32, paddingHorizontal: 25 }}>
 
-                    <CustomButton title="Logout" />
-                </View>
             </ScrollView>
-
+            <View style={{paddingHorizontal: 30}}>
+                <Pressable style={[ModalStyle.ButtonsCommonStyle, {height: 45, width: '100%', marginVertical: 20, borderRadius: 10}]}>
+                    <Text style={{fontSize: 15, fontWeight: '600', color: 'white'}}>Logout</Text>
+                </Pressable>
+            </View>
         </SafeAreaView>
     )
 }

@@ -33,7 +33,14 @@ import RequestDelivery from './src/screens/ChooseLocation/RequestDelivery';
 import MyOrders from './src/screens/MyOrders/MyOrders';
 import OrderDetails from './src/screens/MyOrders/OrderDetails';
 import Mysubscription from './src/screens/Mysubscription/Mysubscription';
-
+import DeleteSubscription from './src/screens/Mysubscription/DeleteSubscription';
+import PermanentModify from './src/screens/Mysubscription/PermanentModify';
+import ModifyTemporary from './src/screens/Mysubscription/ModifyTemporary';
+import PauseSubscription from './src/screens/Mysubscription/PauseSubscription';
+import Wallet from './src/screens/Wallet/Wallet';
+import Suggestion from './src/screens/Menu/Suggestion';
+import Errors from './src/screens/Errors/Errors';
+ 
 Amplify.configure(awsconfig);
 
 const Stack = createNativeStackNavigator();
@@ -52,10 +59,9 @@ const App = () => {
   // console.log(signOut());
   return (
     <NavigationContainer theme={AppTheme}>
-      <Stack.Navigator initialRouteName='Mysubscription'  screenOptions={{ headerShown: false }}>
-     
-      <Stack.Screen name="Mysubscription" component={Mysubscription} /> 
-      </Stack.Navigator> 
+      <Stack.Navigator initialRouteName='Errors'  screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Errors" component={Errors} />  
+      </Stack.Navigator>
     </NavigationContainer> 
   );
 };
@@ -79,6 +85,13 @@ export default App;
 //<Stack.Screen name="RequestDelivery" component={RequestDelivery} />
 //<Stack.Screen name="MyOrders" component={MyOrders} />
 //<Stack.Screen name="OrderDetails" component={OrderDetails} />
+//<Stack.Screen name="Mysubscription" component={Mysubscription} /> 
+//<Stack.Screen name="DeleteSubscription" component={DeleteSubscription} /> 
+//<Stack.Screen name="PermanentModify" component={PermanentModify} /> 
+//<Stack.Screen name="ModifyTemporary" component={ModifyTemporary} />
+//<Stack.Screen name="PauseSubscription" component={PauseSubscription} /> 
+//<Stack.Screen name="Wallet" component={Wallet} /> 
+//<Stack.Screen name="Suggestion" component={Suggestion} />
 //   </>) : (<>
 //     <Stack.Screen name="ChooseLanguage" component={ChooseLanguage} />
 //     {/* <Stack.Screen name="SendOTPTwo" component={SendOTPTwo} /> */}

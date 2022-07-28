@@ -14,7 +14,7 @@ import { CheckoutStyle } from './../../Styles/CheckoutStyle/CheckoutStyle';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { Avatar, Icon, ListItem } from "@rneui/themed";
 import AntDesign from 'react-native-vector-icons/AntDesign'
-import CheckBox from '@react-native-community/checkbox';
+import CheckBox from '@react-native-community/checkbox'; 
 
 const SubscribeEvent = ({title, setSelected, selected}) => {
     return (
@@ -119,51 +119,51 @@ export default function Subscribe() {
         </Pressable>
 
         <View style={CheckoutStyle.DeliveryContainer}>
-                <ListItem.Accordion
-                    content={
-                    <>
-                        <ListItem.Content >
-                            <ListItem.Title style={{color: Colors.LightGreen, }}>Delivery Instructions</ListItem.Title>
+            <ListItem.Accordion
+                content={
+                <>
+                    <ListItem.Content >
+                        <ListItem.Title style={{color: Colors.LightGreen, }}>Delivery Instructions</ListItem.Title>
 
-                        </ListItem.Content>
-                    </>
-                }
-                isExpanded={expandedInstant}
-                onPress={() => {
-                    setExpandedInstant(!expandedInstant);
-                }}
-                icon={ <AntDesign name='caretdown' style={{fontSize: 18 , color: Colors.LightGreen}} />}
-                noRotation
-                >
-                    <ListItem>
-                        <View >
-                        <View style={CheckoutStyle.CheckBoxView}>
-                            <CheckBox
-                                value={isSelected}
-                                onValueChange={setSelection}
-                                style={{alignSelf: "flex-start",}}
-                            />
-                            <Text style={CheckoutStyle.InstructionText}>Return the Bag</Text>
-                        </View>
-                        <View style={CheckoutStyle.CheckBoxView}>
-                            <CheckBox
-                                value={isSelected}
-                                onValueChange={setSelection}
-                                style={{alignSelf: "flex-start",}}
-                            />
-                            <Text style={CheckoutStyle.InstructionText}>No Contact Delivery</Text>
-                        </View>
-                        <View style={CheckoutStyle.CheckBoxView}>
-                            <CheckBox
-                                value={isSelected}
-                                onValueChange={setSelection}
-                                style={{alignSelf: "flex-start",}}
-                            />
-                            <Text style={CheckoutStyle.InstructionText}>Beware of Pets</Text>
-                        </View>
-                        </View>
-                    </ListItem>
-                </ListItem.Accordion>
+                    </ListItem.Content>
+                </>
+            }
+            isExpanded={expandedInstant}
+            onPress={() => {
+                setExpandedInstant(!expandedInstant);
+            }}
+            icon={ <AntDesign name='caretdown' style={{fontSize: 18 , color: Colors.LightGreen}} />}
+            noRotation
+            >
+                <ListItem>
+                    <View >
+                    <View style={CheckoutStyle.CheckBoxView}>
+                        <CheckBox
+                            value={isSelected}
+                            onValueChange={setSelection}
+                            style={{alignSelf: "flex-start",}}
+                        />
+                        <Text style={CheckoutStyle.InstructionText}>Return the Bag</Text>
+                    </View>
+                    <View style={CheckoutStyle.CheckBoxView}>
+                        <CheckBox
+                            value={isSelected}
+                            onValueChange={setSelection}
+                            style={{alignSelf: "flex-start",}}
+                        />
+                        <Text style={CheckoutStyle.InstructionText}>No Contact Delivery</Text>
+                    </View>
+                    <View style={CheckoutStyle.CheckBoxView}>
+                        <CheckBox
+                            value={isSelected}
+                            onValueChange={setSelection}
+                            style={{alignSelf: "flex-start",}}
+                        />
+                        <Text style={CheckoutStyle.InstructionText}>Beware of Pets</Text>
+                    </View>
+                    </View>
+                </ListItem>
+            </ListItem.Accordion>
         </View>
 
  
