@@ -12,7 +12,7 @@ export default function DeleteSubscription() {
         setModalVisible(true)
         setTimeout(() => {
             setModalVisible(false)
-        }, 2000);
+        }, 3000);
     }
   return (
     <SafeAreaView>

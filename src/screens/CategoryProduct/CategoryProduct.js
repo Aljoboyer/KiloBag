@@ -11,9 +11,9 @@ import { useRef } from 'react';
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
 import { Colors } from '../../Theme/Colors';
 import { categories } from '../../components/CategoryItem/CategoryData';
-import BottomTab from '../../components/BottomTab';
 import CategoryProductItem from '../../components/CategoryProductItem/CategoryProductItem'
 import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
+import BottomModal from './../../components/BottomModal/BottomModal';
 
 
 const CategoryProduct = ({ navigation }) => {
@@ -23,7 +23,7 @@ const CategoryProduct = ({ navigation }) => {
     const [category, setCategory] = useState('Fruit & Vegetable');
     let listViewRef;
     const [scrollIndex, setScrollIndex] = useState(0);
-
+    const [bottomModalVisible, setBottomModalVisible] = useState(false)
     const CateGoryItem = ({item}) => (
         <View style={CategoryStyle.CategoryItemContainer}>
             <View  style={CategoryStyle.CategoryView}> 
@@ -79,9 +79,9 @@ const CategoryProduct = ({ navigation }) => {
                     </Pressable>
                 </View>
 
-               <CategoryProductItem/>
+               <CategoryProductItem setBottomModalVisible={setBottomModalVisible}/>
             </ScrollView>
-            <BottomTab/>
+            <BottomModal bottomModalVisible={bottomModalVisible}setBottomModalVisible={setBottomModalVisible} />
         </SafeAreaView>
     )
 }

@@ -5,7 +5,6 @@ import Octicons from 'react-native-vector-icons/Octicons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { Avatar, Icon, ListItem } from "@rneui/themed";
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import BottomTab from './../../components/BottomTab';
 import { Colors } from '../../Theme/Colors'
 import CartItem from '../../components/CartItem/CartItem'
 import { Cartstyles } from '../../Styles/CartStyles/CartStyles'
@@ -16,7 +15,7 @@ const Cart = () => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-            <KiloBagHeader title='Cart' search={true} image={true}/>
+            <KiloBagHeader title='Bag' search={true} image={true}/>
             <ScrollView style={Cartstyles.container}>
                 <View style={{ marginBottom: 30 }}>
                     <View style={Cartstyles.CartView}>
@@ -24,7 +23,6 @@ const Cart = () => {
                     </View>
                 </View>
             </ScrollView>
-            <BottomTab />
         </SafeAreaView>
     )
 }

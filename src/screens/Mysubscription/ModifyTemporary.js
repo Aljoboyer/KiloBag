@@ -12,7 +12,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 export default function ModifyTemporary() {
     const [modalVisible, setModalVisible] = useState(false);
     const [show, setShow] = useState(false);
-    const [mode, setMode] = useState('date');
+    const [dates, setDates] = useState(null);
     const Success = () => {
         setModalVisible(true)
         setTimeout(() => {
@@ -46,13 +46,13 @@ export default function ModifyTemporary() {
                     
                     <Text style={ModifySubStyle.DateLabel}>From Date</Text>
                     <View style={ModifySubStyle.DateView}>
-                        <Text>{new Date().toLocaleDateString()}</Text>
+                        <Text>{dates ?dates :  new Date().toLocaleDateString()}</Text>
                         <Pressable onPress={() => setShow(!show)}><Image source={require('../../../assets/calender.png')} /></Pressable>
                     </View>
 
                     <Text style={ModifySubStyle.DateLabel}>End Date</Text>
                     <View style={ModifySubStyle.DateView}>
-                        <Text>{new Date().toLocaleDateString()}</Text>
+                        <Text>{dates ?dates :  new Date().toLocaleDateString()}</Text>
                         <Pressable><Image source={require('../../../assets/calender.png')} /></Pressable>
                     </View>
                 </View>
@@ -61,6 +61,8 @@ export default function ModifyTemporary() {
                     <Calendar
                         onDayPress={day => {
                             console.log('selected day', day);
+                            setDates(day.dateString)
+                            setShow(false)
                         }}
                         />
                 </View>
@@ -74,13 +76,9 @@ export default function ModifyTemporary() {
                     </Pressable>
                 </View>
            </View>
-        
-           {modalVisible &&  <Modals isModifyed={true} modalVisible={modalVisible} setModalVisible={setModalVisible} />}
        </ScrollView>
 
-     
+       <Modals isModifyed={true} modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </SafeAreaView>
   )
 }
-
-// style={ModifySubStyle.CalendarView}

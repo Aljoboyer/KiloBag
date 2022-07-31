@@ -21,7 +21,7 @@ const Checkout = () => {
     <SafeAreaView style={{ flex: 1}}>
         <KiloBagHeader title='Checkout'/>
 
-        <ScrollView style={{paddingHorizontal: 20, paddingBottom: 40}}>
+        <ScrollView style={{paddingHorizontal: 20,}}>
              <Text style={{color: 'black', fontSize: 16, marginVertical: 20}}>Delivery Location <Text style={{color: 'black', fontSize: 13, color: Colors.LightGreen}}>for instant</Text></Text>
             <Pressable style={CheckoutStyle.LocationView}>
                 <View style={CheckoutStyle.LocationIconBox}>
@@ -98,6 +98,8 @@ const Checkout = () => {
                     </ListItem>
                 </ListItem.Accordion>
             </View>
+           
+        </ScrollView>
             <View style={CheckoutStyle.PlaceOrderContainer}>
                 <View style={CheckoutStyle.PlaceOrderView}>
                     <View>
@@ -106,8 +108,7 @@ const Checkout = () => {
                     </View>
                     <CustomButton title="Place Order" customStyles={CheckoutStyle.PlaceOrderBtn} />
                 </View>
-        </View>
-        </ScrollView>
+            </View>
     </SafeAreaView>
   )
 }

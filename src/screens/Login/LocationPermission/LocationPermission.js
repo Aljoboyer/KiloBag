@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable, } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable, SafeAreaView, } from 'react-native'
 import React from 'react'
 import Octicons from 'react-native-vector-icons/Octicons'
 import CustomButton from '../../../components/CustomButton'
@@ -6,41 +6,39 @@ import { Colors } from './../../../Theme/Colors';
 
 const LocationPermission = ({ navigation }) => {
     return (
-        <View style={styles.container}>
-            <Pressable onPress={() => navigation.goBack()}>
-                <Octicons name='chevron-left' style={{ color: 'black', fontSize: 30,  }} />
-            </Pressable>
-            <View style={{ alignItems: 'center' }}>
-                <Image
-                     source={require('../../../../assets/location.png')}
-                />
+        <SafeAreaView style={{flex: 1}}>
+            <View style={{padding: 30}}>
+                <Pressable onPress={() => navigation.goBack()}>
+                    <Octicons name='chevron-left' style={{ color: 'black', fontSize: 30,  }} />
+                </Pressable>
             </View>
+            <View  style={styles.container}>
+                <View style={{ alignItems: 'center' , paddingTop: 20}}>
+                    <Image style={{width: 228, height: 220}} source={require('../../../../assets/location.png')}/>
+                </View>
 
-            <View style={styles.locationText}>
-                <Text style={{ fontSize: 19, fontWeight: 'bold', color: Colors.LightGreen }}>Location</Text>
-                <Text style={{ textAlign: 'center', paddingTop: 10, color: Colors.Black }}>Please enable location access
-                    so we could provide you accurate
-                    results of available products</Text> 
+                <View style={styles.locationText}>
+                    <Text style={{ fontSize: 18, fontWeight: '600', color: Colors.LightGreen }}>Location</Text>
+                    <Text style={{ textAlign: 'center', paddingTop: 10, color: '#181717' }}>Please enable location access
+                        so we could provide you accurate
+                        results of available products</Text> 
+                <CustomButton title='Enable' onPress={() => navigation.navigate("ChooseLocation")} customStyles={{width: 190, alignSelf: 'center', marginTop: 80, height: 48}} />
+                </View>
             </View>
-            <View>
-                <CustomButton title='Enable' onPress={() => navigation.navigate("Home")} customStyles={{width: 150, alignSelf: 'center'}} />
-            </View>
-
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingVertical: 25,
+        paddingTop: 25,
         paddingHorizontal: 35,
-        justifyContent: 'space-between',
-        backgroundColor: 'white',
     },
     locationText: {
         alignItems: 'center',
-        paddingHorizontal: 65
+        paddingHorizontal: 50,
+        paddingTop: 60
     },
 
 })

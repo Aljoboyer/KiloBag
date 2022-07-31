@@ -80,7 +80,7 @@ export const MyOrderStyle = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         paddingHorizontal: 10,
-        paddingVertical: 20,
+        paddingVertical: 10,
         marginVertical: 10
     },
     DeliverBtn:{

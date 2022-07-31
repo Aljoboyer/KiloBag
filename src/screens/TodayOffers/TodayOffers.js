@@ -3,7 +3,6 @@ import React from 'react'
 import CategoryProductItem from '../../components/CategoryProductItem/CategoryProductItem';
 import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader';
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
-import BottomTab from './../../components/BottomTab';
 
 export default function TodayOffers() {
   return (
@@ -14,7 +13,6 @@ export default function TodayOffers() {
         <CategoryProductItem subscription={true}/>
 
      </ScrollView>
-     <BottomTab/>
  </SafeAreaView>
   )
 }

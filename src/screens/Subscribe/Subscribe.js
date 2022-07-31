@@ -2,7 +2,6 @@ import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image , Pressable, Te
 import React, { useState } from 'react'
 import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader';
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
-import BottomTab from './../../components/BottomTab';
 import { Colors } from './../../Theme/Colors';
 import Octicons from 'react-native-vector-icons/Octicons'
 import { SubscribeStyle } from './../../Styles/SubscribeStyle/SubscribeStyle';
@@ -170,7 +169,6 @@ export default function Subscribe() {
          <CustomButton title='Subscribe' customStyles={{alignSelf: 'center', width: '95%', marginBottom: 5, marginTop: 30}}/>
        
      </ScrollView> 
-     <BottomTab/>
  </SafeAreaView>
   )
 }

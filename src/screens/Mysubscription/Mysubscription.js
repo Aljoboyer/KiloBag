@@ -5,6 +5,7 @@ import { Colors } from './../../Theme/Colors';
 import { MysubscriptionStyle } from './../../Styles/MySubscription/MySubscription';
 import Modals from '../../components/Modals/Modals';
 
+
 const Buttons = ({title, bg, img, OnPress}) => {
     return (
         <Pressable onPress={OnPress} style={[MysubscriptionStyle.ButtonStyle, {backgroundColor: bg}]}>
@@ -44,6 +45,7 @@ export default function Mysubscription() {
                     <Buttons   OnPress={() => {
                         setModalVisible(true)
                         setOption('modify')
+                        console.log('clicked', modalVisible)
                     }} title="MODIFY" bg={Colors.LightGreen} img={require('../../../assets/pencil.png')}/>
                     {
                         item == 4 || <Buttons title="PAUSE" bg={Colors.LightGreen} img={require('../../../assets/pause.png')} />
@@ -58,7 +60,7 @@ export default function Mysubscription() {
   return (
     <SafeAreaView style={{flex: 1}}>
         <KiloBagHeader title="My Subscriptions" search={true} image={true} />
-        <View style={{paddingHorizontal: 14, flex: 1, paddingBottom: 20}}>
+        <View style={{zIndex: 0 ,paddingHorizontal: 14, flex: 1,}}>
             <FlatList
             data={[1,2,3,4,5,6,7,8,9, 10]}
             renderItem={SubscriptionProduct}
@@ -67,12 +69,15 @@ export default function Mysubscription() {
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}
             />
-             <Modals option={option} modalVisible={modalVisible} setModalVisible={setModalVisible} /> 
-        
+        <Modals option={option} modalVisible={modalVisible} setModalVisible={setModalVisible} /> 
         </View>
-
-       
     </SafeAreaView>
   )
 }
 
+const styles = StyleSheet.create({
+    NewStyle :{
+       flex: 1 
+    },
+
+})

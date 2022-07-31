@@ -3,7 +3,7 @@ import { Colors } from './../../Theme/Colors';
 
 export const VerifyPhonestyles = StyleSheet.create({
     container: {
-        paddingHorizontal: 35,
+        flex: 1
     },
     title: {
         fontSize: 20,
@@ -14,7 +14,7 @@ export const VerifyPhonestyles = StyleSheet.create({
     navNtitle: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingTop: 10
+        paddingVertical: 25
     },
     textInput: {
         borderBottomColor: '#939393',
@@ -36,7 +36,8 @@ export const VerifyPhonestyles = StyleSheet.create({
     InputContainer:{
         flexDirection: 'row', 
         justifyContent: 'center',
-        paddingBottom: 40
+        paddingBottom: 40,
+        paddingHorizontal: 25
     },
     ResendCodeText:{
         color: Colors.Black,

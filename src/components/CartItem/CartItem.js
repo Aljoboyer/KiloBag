@@ -4,9 +4,11 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import { Colors } from '../../Theme/Colors'
 import CustomButton from '../CustomButton'
 import { CartItemstyles } from '../../Styles/CartStyles/CartStyles'
+import { useNavigation } from '@react-navigation/native';
 
 
 const CartItem = ({ bgColor}) => {
+    const navigation = useNavigation();
 
     const CartProduct = ({}) => (
  
@@ -72,7 +74,7 @@ const CartItem = ({ bgColor}) => {
                     <Text style={{marginTop: 10, fontSize: 16, color: 'black', fontWeight: '700'}}>$453</Text>
                 </View>
             </View>
-            <CustomButton title='Secure Checkout' customStyles={{width: 290, borderRadius: 10, alignSelf: 'center', marginTop: 10}} />
+            <CustomButton onPress={() => navigation.navigate('Checkout')} title='Secure Checkout' customStyles={{width: 290, borderRadius: 10, alignSelf: 'center', marginTop: 10}} />
          </View>
     </View>
   )

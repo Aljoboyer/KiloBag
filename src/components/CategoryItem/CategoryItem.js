@@ -1,11 +1,14 @@
 import { View, Text, Pressable, Image, StyleSheet , FlatList} from 'react-native'
 import React from 'react'
 import { Colors } from './../../Theme/Colors';
+import { useNavigation } from '@react-navigation/native';
 
 const CategoryItem = ({categories}) => {
+    const navigation = useNavigation();
+
     const CategoryItem =  ({item}) => (
       
-            <Pressable style={{ marginVertical: 16,  marginHorizontal: 10}}  onPress={() => navigation.navigate('Category')}>
+            <Pressable onPress={() => navigation.navigate('CategoryProduct')} style={{ marginVertical: 16,  marginHorizontal: 10}} >
                 <View style={CategoryStyle.categories}>
                     <Image style={{width: 70, height: 53}} source={require('../../../assets/vegetable.png')}/>
                 </View>

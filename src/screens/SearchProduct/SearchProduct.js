@@ -11,7 +11,7 @@ import CustomButton from './../../components/CustomButton';
 import BottomModal from '../../components/BottomModal/BottomModal';
 const {width, height } = Dimensions.get("window");
 
-export default function SearchProduct() {
+export default function SearchProduct({navigation}) {
     const TopSearchItem = ["Milk", "Cookies", "Apple", "Watermelon", "Mustard Oil", "Flour"];
     const topsearch = false;
     const searchResult = false;

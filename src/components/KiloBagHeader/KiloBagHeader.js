@@ -7,8 +7,10 @@ import Entypo from 'react-native-vector-icons/Octicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { CategoryStyle } from './../../Styles/CategoryStyle/CategoryStyle';
+import { useNavigation } from '@react-navigation/native';
 
 const KiloBagHeader = ({ category,setCategory, location, title, search, image, backbtn, show, setShow, cross}) => {
+    const navigation = useNavigation()
   return (
    <View style={styles.HeaderContainer}>
      <View style={styles.deliverLocation}>
@@ -73,12 +75,14 @@ const KiloBagHeader = ({ category,setCategory, location, title, search, image, b
         }
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {
-                search &&   <Pressable>
+                search &&   <Pressable onPress={() => navigation.navigate('SearchProduct')}>
                     <FontAwesome name='search' style={{ fontSize: 22, color: Colors.White, marginRight: 25}} />
-                </Pressable>
+                </Pressable> 
             }
            {
-            image &&  <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
+            image &&  <Pressable onPress={() => navigation.navigate('Menu')}>
+                <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
+            </Pressable>
            }
         </View>
      </View>

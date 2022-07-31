@@ -8,7 +8,6 @@ import Octicons from 'react-native-vector-icons/Octicons'
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
 import { Colors } from '../../Theme/Colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import BottomTab from './../../components/BottomTab';
 import { ProductDetailStyle } from './../../Styles/ProductDetailsStyle/ProductDetailStyle';
 import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
 
@@ -68,7 +67,6 @@ const ProductDetails = () => {
                     </Text>
                 </View>
             </ScrollView>
-         <BottomTab/>
         </SafeAreaView>
     );
 }

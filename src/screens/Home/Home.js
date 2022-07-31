@@ -9,7 +9,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Carousel from "pinar";
 import { Homestyles } from '../../Styles/Home/HomeStyle';
-import BottomTab from '../../components/BottomTab';
 import { Colors } from '../../Theme/Colors';
 import CategoryItem from '../../components/CategoryItem/CategoryItem'
 import { BigDeals, categories, FreshItems } from '../../components/CategoryItem/CategoryData'
@@ -101,16 +100,15 @@ const Home = ({ navigation }) => {
                         <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
                     </View>
                 </View>
-                <View style={{ marginTop: 50 , paddingBottom: 10}} >
-                    <Text style={Homestyles.sectionTitle}>Fresh Finds</Text>
+                <View style={{ marginTop: 50 , paddingBottom: 20}} >
+                    <Text style={Homestyles.sectionTitle}>New Arrivals<Image source={require('../../../assets/neartoyou.png')}/></Text>
                     <FreshFindItem setBottomModalVisible={setBottomModalVisible}  items={FreshItems} />
-                    <View style={Homestyles.viewAll}>
+                    <Pressable style={Homestyles.viewAll}>
                         <Text style={Homestyles.ViewText}>View all</Text>
                         <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
-                    </View>
+                    </Pressable>
                 </View>
             </ScrollView>
-            <BottomTab />
             <BottomModal bottomModalVisible={bottomModalVisible} setBottomModalVisible={setBottomModalVisible} />
         </SafeAreaView>
     )

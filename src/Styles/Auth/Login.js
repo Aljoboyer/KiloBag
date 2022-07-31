@@ -41,17 +41,17 @@ export const ChooseLanguageStyle = StyleSheet.create({
         // borderWidth: 3,
     },
     LanguageContainer:{ 
-        flex: 1,
-        backgroundColor: '#fff',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 50,
-        paddingHorizontal: 30
+        justifyContent: 'center',
+        marginBottom: 20,
+        paddingHorizontal: 30,
+        marginTop: 50
     },
-    ChooseTitle: { textAlign: 'center', fontSize: 18, color: '#5CBB5E', fontWeight: '600', marginVertical: 50 },
+    ChooseTitle: { textAlign: 'center', fontSize: 18, color: '#5CBB5E', fontWeight: '600', marginTop: 90 },
     imageContainer:{
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 20,
+        marginBottom: 20,
+        marginTop: 80
     }
 });

@@ -28,7 +28,12 @@ const Menu = ({navigation}) => {
                 {
                     menu.map((name) => {
                         return <View key={name} style={{ borderBottomColor: "#E7E6E6", borderBottomWidth: 1, paddingVertical: 20, paddingLeft: 40}}>
-                            <Pressable>
+                            <Pressable 
+                                onPress={() => {
+                                    {name == 'My Subscriptions' && navigation.navigate('Mysubscription')}
+                                    {name == 'Suggestions' && navigation.navigate('Suggestion')}
+                                }}
+                            >
                                 <Text style={{ marginLeft: 24, fontSize: 13, fontWeight: '400', color: 'black' }}>{name}</Text>
                             </Pressable>
                         </View>

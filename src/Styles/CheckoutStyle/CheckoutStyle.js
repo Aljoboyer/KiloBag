@@ -40,8 +40,8 @@ export const CheckoutStyle = StyleSheet.create({
       },
       PlaceOrderBtn:{
         width: 170,
-        height: 45
+        height: 49
       },
     PlaceOrderView:{flexDirection: 'row', justifyContent: 'space-between',  paddingHorizontal: 18, paddingVertical: 20, borderTopColor: Colors.LightGray, borderTopWidth: 1},
-    PlaceOrderContainer: { marginTop: 60, paddingBottom: 10,}
+    PlaceOrderContainer: { paddingBottom: 5,}
 });

@@ -7,17 +7,18 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { Colors } from './../../Theme/Colors';
 import { ModalStyle } from './../../Styles/ModalStyle/ModalStyle';
+import { useNavigation } from '@react-navigation/native'
 
 const  CategoryProductItem = ({subscription, setBottomModalVisible}) =>  {
-
+    const navigation = useNavigation()
     const ProductItem = ({item}) => (
 
         <View key={item} style={styles.MainContainer}>
-            <Pressable onPress={() => navigation.navigate('ProductDetails')}>
+            <Pressable >
                 <View style={{ flexDirection: 'row', }}>
-                    <View style={styles.imageView}>
+                    <Pressable onPress={() => navigation.navigate('ProductDetails')} style={styles.imageView}>
                         <Image source={require('../../../assets/waterMalon.png')} />
-                    </View>
+                    </Pressable>
                     <View style={{ alignItems: 'flex-start', justifyContent: 'space-between', paddingVertical: 5, }}>
                     
                         <View>
