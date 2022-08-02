@@ -1,40 +1,44 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable, Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, UIManager, Pressable, Image, ScrollView, LayoutAnimation,TouchableOpacity , Animated, Dimensions, StyleSheet} from 'react-native'
 import React, { useState } from 'react'
 import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader';
 import { Colors } from './../../Theme/Colors';
 import MyOrderItem from './../../components/MyOrderItem/MyOrderItem';
 import CustomButton from '../../components/CustomButton';
 import { MyOrderItemStyle, MyOrderStyle } from './../../Styles/MyOrderStyle/MyOrderStyle';
+import * as Animatable from 'react-native-animatable';
 
+const { width } = Dimensions.get("window");
 export default function MyOrders() {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
   const [selected2, setSelected2] = useState(false);
   const notfound = false;
 
-  const orders = [1,2,3,4,5,]
+  const orders = [1,2,3,4,5,];
+
   return (
     <SafeAreaView style={{flex: 1}}>
         <KiloBagHeader title="My Orders" search={true} image={true} />
         <ScrollView style={MyOrderStyle.MainContainer} showsVerticalScrollIndicator={false}>
             <View style={MyOrderStyle.MainView}>
               <View style={MyOrderStyle.TabContainer}>
-                  <Pressable onPress={() => {
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => {
                     setSelected2(false)
                     setSelected(true);
                   }} style={selected ? MyOrderStyle.SelectedStyle : MyOrderStyle.NotSelectedStyle}>
                       <Text style={selected ? MyOrderStyle.SelectedText : MyOrderStyle.NotSelectedText}>Buy Now</Text>
-                  </Pressable>
-                  <Pressable onPress={() => {
+                  </TouchableOpacity>
+
+                  <TouchableOpacity activeOpacity={0.5} onPress={() => {
                     setSelected(false);
-                    setSelected2(true)
+                    setSelected2(true);
                   }} style={selected2 ? MyOrderStyle.SelectedStyle : MyOrderStyle.NotSelectedStyle}>
                       <Text style={selected2 ? MyOrderStyle.SelectedText : MyOrderStyle.NotSelectedText}>Subscriptions</Text>
-                  </Pressable>
+                  </TouchableOpacity>
               </View>
 
                 {
                   selected && 
-                  <View style={MyOrderStyle.MyorderView}>
+                  <Animatable.View animation="slideInLeft" duration={1000} easing="ease-in-out" >
                       {
                         notfound &&  <View style={MyOrderStyle.NotFoundView}>
                             <Image source={require('../../../assets/noOrderFound.png')} />
@@ -45,12 +49,12 @@ export default function MyOrders() {
                       <Pressable style={MyOrderStyle.Buttons}>
                       <Text style={{fontSize: 13, fontWeight: '500', color: 'white'}}>Load More</Text>
                     </Pressable>
-                  </View>
+                  </Animatable.View>
                 }
 
                {
                 selected2 &&
-                <View style={MyOrderStyle.SubscriptionView}>
+                <Animatable.View animation="slideInRight" duration={1000} easing="ease-in-out">
                     {
                       notfound && <View style={MyOrderStyle.NotFoundView}>
                       <Image source={require('../../../assets/noOrderFound.png')} />
@@ -61,11 +65,10 @@ export default function MyOrders() {
                     <Pressable style={MyOrderStyle.Buttons}>
                       <Text style={{fontSize: 15, fontWeight: '500', color: 'white'}}>Load More</Text>
                     </Pressable>
-                </View>
+                </Animatable.View >
                }
             </View>
         </ScrollView>
     </SafeAreaView>
   )
 }
-

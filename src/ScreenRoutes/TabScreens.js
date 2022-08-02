@@ -3,13 +3,12 @@ import React, { useState } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home/Home';
-import MyOrders from '../screens/MyOrders/MyOrders';
 import Wallet from '../screens/Wallet/Wallet';
 import Cart from '../screens/Cart/Cart';
 import { Colors } from '../Theme/Colors';
-import StackScreens from './StackScreens';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { StackScreens, StackScreens2, StackScreens3 } from './StackScreens';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,14 +20,14 @@ export default function ScreenRoutes() {
   return (
 
       <Tab.Navigator
-      initialRouteName='StackScreens'
+      initialRouteName='Home'
      
       screenOptions={({route}) => ({
       tabBarStyle: { borderTopColor:  Colors.LightGreen, borderTopWidth: 1, paddingTop: 10 , height: 70, backgroundColor: 'white', paddingBottom: 15},
       
       tabBarIcon: ({focused, size, color}) => {
 
-          if(route.name === 'StackScreens')
+          if(route.name === 'Home')
           {  
             
             if(focused)
@@ -41,7 +40,7 @@ export default function ScreenRoutes() {
                 )
               }
           }
-          else if(route.name === 'MyOrders')
+          else if(route.name === 'Orders')
           {
             if(focused)
             return(
@@ -91,18 +90,18 @@ export default function ScreenRoutes() {
         listeners={({ navigation, route }) => ({
           tabPress: e => {
             if (route.state && route.state.routeNames.length > 0) {
-                navigation.navigate('Home')
+                navigation.navigate('Home2')
                 
             }
           },
         })}
-        name="StackScreens" component={StackScreens}/> 
+        name="Home" component={StackScreens}/> 
 
         <Tab.Screen  options={{
           tabBarLabelStyle: {color: Colors.LightGreen},
           header: () => null
         }}
-        name="MyOrders" component={MyOrders}/>
+        name="Orders" component={StackScreens2}/>
 
         <Tab.Screen  options={{
           tabBarLabelStyle: {color: Colors.LightGreen},
@@ -114,7 +113,7 @@ export default function ScreenRoutes() {
         tabBarLabelStyle: {color: Colors.LightGreen},
         tabBarBadgeStyle: {backgroundColor: 'white', borderRadius: 50, borderWidth: 1, borderColor: '#5CBB5E', marginBottom: 10, color: '#5CBB5E', fontSize: 12},
         header: () => null
-      }} name="Bag" component={Cart}/>
+      }} name="Bag" component={StackScreens3}/>
       </Tab.Navigator> 
   )
 }

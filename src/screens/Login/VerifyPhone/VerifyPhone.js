@@ -25,7 +25,7 @@ const VerifyPhone = ({ navigation }) => {
             <Text>Code is sent to <Text style={{ fontWeight: 'bold' }}>+91 7839462944</Text></Text>
             <MaterialCommunityIcons name='pencil' style={{ color: 'black', fontSize: 15, paddingLeft: 5 }} />
             </View>
-            <Text style={{ color: Colors.Black, fontSize: 18, }}>Enter OTP</Text>
+            <Text style={{ color: Colors.Black, fontSize: 18, marginLeft: 20}}>Enter OTP</Text>
             <View style={VerifyPhonestyles.InputContainer}>
             <OTPInputView
                 pinCount={4}
@@ -40,15 +40,20 @@ const VerifyPhone = ({ navigation }) => {
             <View style={{paddingHorizontal: 25}}>
             <Text style={VerifyPhonestyles.ResendCodeText}>Didn’t receive code? <Text style={{fontWeight: 'bold'}}>Request again</Text> or <Text style={{fontWeight: 'bold'}}>Get via Call</Text></Text>
             <CustomButton onPress={() => {
-                setModalVisible(!modalVisible)
-            }}
+                // setModalVisible(!modalVisible)
+                // navigation.navigate('LocationPermission')
+                setModalVisible(true)
+                setTimeout(() => {
+                    setModalVisible(false)
+                }, 3000);
+            }} 
                 title='Verify and Proceed'
             />
             </View>
-            <Modals setModalVisible={setModalVisible} modalVisible={modalVisible} loading={true} />
+            <Modals setModalVisible={setModalVisible} modalVisible={modalVisible} loading={true} /> 
         </View>
     </SafeAreaView>
-  
+   
     )
 }
 

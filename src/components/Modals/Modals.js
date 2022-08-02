@@ -7,6 +7,7 @@ import { Colors } from './../../Theme/Colors';
 import CustomButtonTwo from './../CustomButtonTwo/CustomButtonTwo';
 import { useNavigation } from "@react-navigation/native";
 import { Backdrop } from "react-native-backdrop";
+import LottieView from 'lottie-react-native';
 
 const Modals = ({modalVisible, setModalVisible, loading, lang, option, isdeleted, isModifyed, isPaused}) => {
    const navigation = useNavigation()
@@ -41,11 +42,9 @@ const Modals = ({modalVisible, setModalVisible, loading, lang, option, isdeleted
           <View style={ModalStyle.centeredView}>
             <View style={ModalStyle.modalView}>
                 {
-                  loading && <><Image
-                  source={require('../../../assets/LoadingImg.png')}
+                  loading && <><LottieView
+                  source={require('../../../assets/JsonFiles/loader.json')} autoPlay loop
               />
-              <Text style={{fontSize: 18, fontWeight: '500', color: '#343434'}}>Loading...</Text>
-              <CustomButton customStyles={ModalStyle.buttons} title='OK' onPress={() => setModalVisible(!modalVisible)}/>
               </>  } 
               { lang &&  <> 
                     <Icon name="warning" size={80} color={Colors.LightGreen} />

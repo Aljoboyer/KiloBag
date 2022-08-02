@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable, Image, FlatList } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Pressable, Image, FlatList, } from 'react-native'
 import React from 'react'
 import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader'
 import { MyOrderItemStyle } from '../../Styles/MyOrderStyle/MyOrderStyle'
 import { Colors } from './../../Theme/Colors';
 import { OrderDetailStyle } from './../../Styles/MyOrderStyle/MyOrderStyle';
+import { ModalStyle } from './../../Styles/ModalStyle/ModalStyle';
 
 
 const OrderProcess = ({title, colors}) => {
@@ -14,10 +15,10 @@ const OrderProcess = ({title, colors}) => {
     </View>
   )
 }
-export default function OrderDetails() {
+export default function BagOrderDetails() {
   const progress = true;
   const delivered = false;
-
+  const anyTimePay = true
   const OrderItem = ({item}) => (
     <View style={OrderDetailStyle.ProductView}>
         <Image source={require('../../../assets/biscuit.png')} />
@@ -31,6 +32,19 @@ export default function OrderDetails() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <KiloBagHeader title="Order Details" />
+      
+     {
+      anyTimePay &&  <View style={OrderDetailStyle.PayAnytimeView}>
+      <Text style={OrderDetailStyle.PayTitle}>Pay anytime for a contactless delivery</Text>
+      <View style={{flexDirection:  'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 10}}>
+          <Text style={{fontSize: 15, fontWeight: '500', color: 'black'}}>Total: <Image source={require('../../../assets/rupiIconBlack.png')} /> 500</Text>
+          <Pressable style={[ModalStyle.ButtonsCommonStyle, {width: 114, height: 34}]}>
+            <Text style={{fontSize: 14, fontWeight: '500', color: 'white'}}>Pay Now</Text>
+          </Pressable>
+      </View>
+  </View>
+     }
+
       <View style={OrderDetailStyle.MainView}>
           <View style={OrderDetailStyle.DescripView}>
               <View>
@@ -38,15 +52,16 @@ export default function OrderDetails() {
                   <Text style={{fontSize: 11, color: '#6F6F6F' , fontWeight: '500', marginVertical: 8}}>on 12/04/2022 at 12:40PM</Text>
                   {progress && <OrderProcess title="In Progress" colors="#FF8F27" />}
                   {delivered && <OrderProcess title="Delivered" colors={Colors.LightGreen} />}
+                  <Text style={{fontSize: 11, color: 'black' , fontWeight: '500', marginTop: 8}}>Payment Method: <Text style={{fontSize: 11, color: 'black' , fontWeight: '400'}}>Online</Text></Text>
               </View>
 
              <View>
               <Pressable style={[MyOrderItemStyle.DeliverBtn, {backgroundColor: 'white', borderColor: Colors.LightGreen, borderWidth: 1, borderRadius: 5, height: 31, width: 95}]}>
-                  <Text style={{fontSize: 13, fontWeight: '500', color: Colors.LightGreen, textAlign: 'center'}}>Reorder</Text>
+                  <Text style={{fontSize: 13, fontWeight: '500', color: Colors.LightGreen, textAlign: 'center'}}>Track</Text>
                 </Pressable>
              </View>
           </View>
-          <Text style={[OrderDetailStyle.LocationText, {paddingVertical: 15}]}>Delivery Address: <Text style={[MyOrderItemStyle.ItemText, {fontWeight: '300'}]}>Nelamangala - Majestic Service...</Text></Text>
+          <Text style={[OrderDetailStyle.LocationText, {paddingVertical: 12}]}>Delivery Address: <Text style={[MyOrderItemStyle.ItemText, {fontWeight: '300'}]}>Nelamangala - Majestic Service...</Text></Text>
 
           <FlatList
           data={[1,2,3,4,5,6,7,8,9,10]}
@@ -71,7 +86,6 @@ export default function OrderDetails() {
             </View>
         </View>
       </View>
-
     </SafeAreaView>
   )
 }

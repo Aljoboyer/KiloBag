@@ -1,46 +1,49 @@
-import { View, Text, StyleSheet , Image, TextInput, FlatList} from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet , Image, TextInput, FlatList, Pressable, ActivityIndicator} from 'react-native'
+import React, { useState } from 'react'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { Colors } from '../../Theme/Colors'
 import CustomButton from '../CustomButton'
 import { CartItemstyles } from '../../Styles/CartStyles/CartStyles'
 import { useNavigation } from '@react-navigation/native';
+import { ModalStyle } from './../../Styles/ModalStyle/ModalStyle';
+import LottieView from 'lottie-react-native';
 
-
-const CartItem = ({ bgColor}) => {
+const CartItem = ({ bgColor, skeletonShow}) => {
     const navigation = useNavigation();
+    const [loader, setLoader] = useState(false);
 
     const CartProduct = ({}) => (
- 
-            <View style={CartItemstyles.ProductView} >
-                <View style={{ flexDirection: 'row',  }}>
-                    <View style={CartItemstyles.imageView}>
-                        <Image source={require('../../../assets/waterMalon.png')} />
-                    </View>
-                    <View style={{ justifyContent: 'space-between', paddingVertical: 5, }}>
-                        <Text style={{color: 'black', fontSize: 15}}>Watermelon</Text>
-                        <Text style={{color: 'black', fontSize: 13}}>$21</Text>
-                        <Text style={{color: Colors.LightGray, fontSize: 12}}>You Saved $1</Text>
-                    </View>
+        <View style={CartItemstyles.ProductView} >
+            <View style={{ flexDirection: 'row',  }}>
+                <View style={CartItemstyles.imageView}>
+                { skeletonShow ? <LottieView style={{height: 55, width: 70}}
+                    source={require('../../../assets/JsonFiles/skeleton-loader-rectangle.json')} autoPlay loop/>  : <Image source={require('../../../assets/waterMalon.png')} />
+                }
                 </View>
-                <View style={{ justifyContent: 'space-between', padding: 2, alignSelf: 'flex-end' }}>
-                 
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={CartItemstyles.AmountIcon}>
-                            <Entypo name='minus' style={{ color: 'white', fontSize: 16, fontWeight: '600' }} />
-                        </View>
-                        <Text style={{ marginHorizontal: 12, color: 'black' }}>2</Text>
-                        <View style={CartItemstyles.AmountIcon}>
-                            <Entypo name='plus' style={{ color: 'white', fontSize: 16, fontWeight: '600', }} />
-                        </View>
+                <View style={{ justifyContent: 'space-between', paddingVertical: 5, }}>
+                    <Text style={{color: 'black', fontSize: 15}}>Watermelon</Text>
+                    <Text style={{color: 'black', fontSize: 13}}>$21</Text>
+                    <Text style={{color: Colors.LightGray, fontSize: 12}}>You Saved $1</Text>
+                </View>
+            </View>
+            <View style={{ justifyContent: 'space-between', padding: 2, alignSelf: 'flex-end' }}>
+                
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={CartItemstyles.AmountIcon}>
+                        <Entypo name='minus' style={{ color: 'white', fontSize: 16, fontWeight: '600' }} />
+                    </View>
+                    <Text style={{ marginHorizontal: 12, color: 'black' }}>2</Text>
+                    <View style={CartItemstyles.AmountIcon}>
+                        <Entypo name='plus' style={{ color: 'white', fontSize: 16, fontWeight: '600', }} />
                     </View>
                 </View>
             </View>
+        </View>
     )
   return (
     <View>
       <FlatList
-        data={[1,2,3]}
+        data={[1,2,3,]}
         renderItem={CartProduct}
         keyExtractor={item => item.index}
         horizontal={false}
@@ -53,8 +56,12 @@ const CartItem = ({ bgColor}) => {
                 <Text style={{ fontSize: 16, fontWeight: '500',  marginLeft: 10, color: 'black' }}>Apply Discount Code</Text>
             </View>
             <View style={CartItemstyles.PromoView}>
-                <TextInput placeholder='Enter promo code' style={[CartItemstyles.InputStyle, {borderColor: Colors.LightGreen}]} />
-                <CustomButton title='Apply' customStyles={[CartItemstyles.ButtonStyle, {backgroundColor: Colors.LightGreen}]} />
+                <TextInput maxLength={5}  placeholder='Enter promo code' style={[CartItemstyles.InputStyle, {borderColor: Colors.LightGreen}]} />
+                <Pressable onPress={() => setLoader(!loader)} style={[ModalStyle.ButtonsCommonStyle,CartItemstyles.ButtonStyle]}>
+                {
+                 loader ? <ActivityIndicator color='white' size="small" /> :  <Text style={{fontSize: 14, fontWeight: '600', color: 'white'}}>Apply</Text>
+                 }
+                </Pressable>
             </View>
         </View>
          
@@ -74,7 +81,7 @@ const CartItem = ({ bgColor}) => {
                     <Text style={{marginTop: 10, fontSize: 16, color: 'black', fontWeight: '700'}}>$453</Text>
                 </View>
             </View>
-            <CustomButton onPress={() => navigation.navigate('Checkout')} title='Secure Checkout' customStyles={{width: 290, borderRadius: 10, alignSelf: 'center', marginTop: 10}} />
+            <CustomButton onPress={() => navigation.navigate('Checkout')} title='Secure Checkout' customStyles={{width: '95%', borderRadius: 10, alignSelf: 'center', marginTop: 10}} />
          </View>
     </View>
   )

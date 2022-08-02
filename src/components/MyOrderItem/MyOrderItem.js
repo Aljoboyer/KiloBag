@@ -21,7 +21,7 @@ export default function MyOrderItem({orders}) {
                 <Text style={MyOrderItemStyle.ItemText}>Order ID: 17837638299221</Text>
                 <Text style={{fontSize: 11, color: '#6F6F6F' , fontWeight: '500', marginVertical: 7}}>On 12/04/2022 at 12:40PM</Text>
                 <Pressable style={MyOrderItemStyle.ReorderBtn}>
-                    <Text style={{fontSize: 13, fontWeight: '500', color: 'white', textAlign: 'center'}}>Delivered</Text>
+                    <Text style={{fontSize: 13, fontWeight: '500', color: 'white', textAlign: 'center'}}>Reorder</Text>
                 </Pressable>
             </View>
             <View style={{justifyContent: 'space-between'}}>
@@ -40,7 +40,7 @@ export default function MyOrderItem({orders}) {
                 }
                 {
                     item == 2  && <Pressable style={MyOrderItemStyle.CancelBtn}>
-                        <Text style={{fontSize: 13, fontWeight: '500', color: '#A7A7A7'}}>In Progress</Text>
+                        <Text style={{fontSize: 13, fontWeight: '500', color: '#A7A7A7'}}>Cancelled</Text>
                     </Pressable>
                 }
             </View>

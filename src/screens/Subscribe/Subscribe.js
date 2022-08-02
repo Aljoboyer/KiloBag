@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image , Pressable, TextInput} from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image , Pressable, TextInput, ActivityIndicator} from 'react-native'
 import React, { useState } from 'react'
 import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader';
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
@@ -14,6 +14,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { Avatar, Icon, ListItem } from "@rneui/themed";
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import CheckBox from '@react-native-community/checkbox'; 
+import { ModalStyle } from '../../Styles/ModalStyle/ModalStyle';
 
 const SubscribeEvent = ({title, setSelected, selected}) => {
     return (
@@ -30,7 +31,8 @@ export default function Subscribe() {
     const isbuy = true;
     const [expandedInstant, setExpandedInstant] = React.useState(null);
     const [isSelected, setSelection] = useState(false);
-
+    const [loader, setLoader] = useState(false);
+    
     const onChange = (event, selectedDate) => {
       const currentDate = selectedDate;
       setShow(false);
@@ -101,8 +103,12 @@ export default function Subscribe() {
             <Text style={SubscribeStyle.ApplyCouponText}>Apply Coupons</Text>
 
             <View style={SubscribeStyle.PromoView}>
-                <TextInput placeholder='Enter promo code' style={[SubscribeStyle.InputStyle, {borderColor: '#C2C2C2'}]} />
-                <CustomButton title='Apply' customStyles={[SubscribeStyle.ButtonStyle, {backgroundColor: Colors.LightGreen}]} />
+                <TextInput maxLength={5} placeholder='Enter promo code' style={[SubscribeStyle.InputStyle, {borderColor: '#C2C2C2'}]} />
+                <Pressable style={[ ModalStyle.ButtonsCommonStyle ,SubscribeStyle.ButtonStyle]}>
+                    {
+                        loader ? <ActivityIndicator color='white' size="small" /> :  <Text style={{fontSize: 14, fontWeight: '600', color: 'white'}}>Apply</Text>
+                    }
+                </Pressable>
             </View>
         </View>
 
@@ -164,11 +170,15 @@ export default function Subscribe() {
                 </ListItem>
             </ListItem.Accordion>
         </View>
-
- 
-         <CustomButton title='Subscribe' customStyles={{alignSelf: 'center', width: '95%', marginBottom: 5, marginTop: 30}}/>
        
-     </ScrollView> 
+     </ScrollView>
+
+     <Pressable onPress={() => setLoader(!loader)} style={[ ModalStyle.ButtonsCommonStyle ,{backgroundColor: Colors.LightGreen, alignSelf: 'center', width: '88%', marginBottom: 5, marginTop: 30, height: 41}]}>
+        {
+            loader ? <ActivityIndicator color='white' size="small" /> :  <Text style={{fontSize: 14, fontWeight: '600', color: 'white'}}>Subscribe</Text>
+        }
+     </Pressable>
+
  </SafeAreaView>
   )
 }

@@ -9,6 +9,7 @@ import { Colors } from './../../Theme/Colors';
 import { ModalStyle } from './../../Styles/ModalStyle/ModalStyle';
 import { useNavigation } from '@react-navigation/native'
 
+
 const  CategoryProductItem = ({subscription, setBottomModalVisible}) =>  {
     const navigation = useNavigation()
     const ProductItem = ({item}) => (
@@ -17,16 +18,16 @@ const  CategoryProductItem = ({subscription, setBottomModalVisible}) =>  {
             <Pressable >
                 <View style={{ flexDirection: 'row', }}>
                     <Pressable onPress={() => navigation.navigate('ProductDetails')} style={styles.imageView}>
-                        <Image source={require('../../../assets/waterMalon.png')} />
+                        <Image  source={require('../../../assets/waterMalon.png')} />
                     </Pressable>
                     <View style={{ alignItems: 'flex-start', justifyContent: 'space-between', paddingVertical: 5, }}>
                     
                         <View>
-                            <Text style={{color: 'black', fontSize: 14}}>Watermelon</Text>
+                            <Text style={{color: 'black', fontSize: 12}}>Watermelon</Text>
                         </View>
 
                         <View style={{flexDirection: 'row', marginVertical: 10}}>
-                            <Text style={{color: 'black', fontSize: 14, fontWeight: '500', }}>$21</Text>
+                            <Text style={{color: 'black', fontSize: 13, fontWeight: '500', }}>$21</Text>
                             <Pressable onPress={() => setBottomModalVisible(true)} >
                                     <Text style={{color: Colors.LightGreen, fontSize: 11, marginLeft: 15, fontWeight: '600'}}>2500ml <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
                             </Pressable>
@@ -35,7 +36,7 @@ const  CategoryProductItem = ({subscription, setBottomModalVisible}) =>  {
                         {
                             subscription ?     <View  style={styles.AmountBtntow}>
                             <Text style={{color: '#B7B7B7', fontSize: 10}}>Subscribe @20</Text>
-                        </View> :     <Pressable  style={styles.AmountBtn}>
+                        </View> : <Pressable onPress={() => navigation.navigate('Subscribe')}  style={styles.AmountBtn}>
                             <Text style={{color: Colors.DarkGray, fontSize: 10}}>Subscribe @20</Text>
                         </Pressable>
                         }

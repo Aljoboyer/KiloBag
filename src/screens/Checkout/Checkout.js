@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Pressable,Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Pressable,Image, ScrollView, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
 import { CategoryStyle } from '../../Styles/CategoryStyle/CategoryStyle';
 import { Colors } from './../../Theme/Colors';
@@ -10,13 +10,17 @@ import { Avatar, Icon, ListItem } from "@rneui/themed";
 import { CheckoutStyle } from './../../Styles/CheckoutStyle/CheckoutStyle';
 import CustomButton from '../../components/CustomButton';
 import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
+import { ModalStyle } from './../../Styles/ModalStyle/ModalStyle';
+import { useNavigation } from '@react-navigation/native';
 
 const Checkout = () => {
     const [isSelected, setSelection] = useState(false);
     const [expandedInstant, setExpandedInstant] = React.useState(null);
     const PaymentOption = ['UPI','Cards','Netbanking', 'PhonePe', 'PayPal', 'Wallet'];
     const [options, setOptions] = useState(null);
-
+    const [loader, setLoader] = useState(false);
+    const navigation = useNavigation();
+    
   return (
     <SafeAreaView style={{ flex: 1}}>
         <KiloBagHeader title='Checkout'/>
@@ -106,7 +110,15 @@ const Checkout = () => {
                         <Text style={{fontSize: 15, fontWeight: '400', color: 'black'}}>Total</Text>
                         <Text  style={{fontSize: 17, fontWeight: '500', color: 'black', marginTop: 5}}>$452</Text>
                     </View>
-                    <CustomButton title="Place Order" customStyles={CheckoutStyle.PlaceOrderBtn} />
+
+                    <Pressable onPress={() => {
+                         setLoader(!loader)
+                         navigation.navigate('BagOrderDetails')
+                    }} style={[ ModalStyle.ButtonsCommonStyle ,CheckoutStyle.PlaceOrderBtn]}>
+                    {
+                        loader ? <ActivityIndicator color='white' size="small" /> :  <Text style={{fontSize: 14, fontWeight: '600', color: 'white'}}>Place Order</Text>
+                    }
+                </Pressable>
                 </View>
             </View>
     </SafeAreaView>

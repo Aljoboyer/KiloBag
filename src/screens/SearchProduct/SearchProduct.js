@@ -13,9 +13,9 @@ const {width, height } = Dimensions.get("window");
 
 export default function SearchProduct({navigation}) {
     const TopSearchItem = ["Milk", "Cookies", "Apple", "Watermelon", "Mustard Oil", "Flour"];
-    const topsearch = false;
+    const topsearch = true;
     const searchResult = false;
-    const result =  true;
+    const result =  false;
     
     const SearchData = [
         {product:  "Milk Powder", subsciption:"in Instant"},
@@ -57,7 +57,9 @@ export default function SearchProduct({navigation}) {
                 </View>
             </View>
 
-            <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
+            <Pressable onPress={() => navigation.navigate('Menu')}>
+                <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
+            </Pressable>
         </View>
 
         <ScrollView style={{paddingVertical: 25, paddingHorizontal: 15}}>
@@ -70,7 +72,7 @@ export default function SearchProduct({navigation}) {
                         TopSearchItem.map((item) => {
                         return (
                             <View style={SearchStyles.TopSearchItem}>
-                                <Text style={{fontSize: 13, color: 'black', fontWeight: '400'}}>{item}</Text>
+                                <Text style={{fontSize: 12, color: 'black', fontWeight: '400'}}>{item}</Text>
                             </View>
                         )
                         })

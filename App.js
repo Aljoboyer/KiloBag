@@ -15,6 +15,7 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabScreens from './src/ScreenRoutes/TabScreens';
 import Suggestion from './src/screens/Menu/Suggestion';
+import RequestDelivery from './src/screens/ChooseLocation/RequestDelivery';
 
 Amplify.configure(awsconfig);
 
@@ -42,7 +43,7 @@ const App = () => {
           <Stack.Screen name="ProductDetails" component={ProductDetails} />
           <Stack.Screen name="Menu" component={Menu} />
           <Stack.Screen name="Checkout" component={Checkout} />
-          <Stack.Screen name="Suggestion" component={Suggestion} />
+          <Stack.Screen  name="Suggestion" component={Suggestion} />
           </Stack.Navigator>
           :
           <Stack.Navigator initialRouteName='ChooseLanguage'  screenOptions={{ headerShown: false }}>
@@ -52,13 +53,13 @@ const App = () => {
               <Stack.Screen name="PackingLove" component={PackingLove} />
               <Stack.Screen name="LocationPermission" component={LocationPermission} />
               <Stack.Screen name="ChooseLocation" component={ChooseLocation} />
+              <Stack.Screen name="RequestDelivery" component={RequestDelivery} />
           </Stack.Navigator>
         }
     </NavigationContainer>
 
   );
 };
-
 
 export default App;
 

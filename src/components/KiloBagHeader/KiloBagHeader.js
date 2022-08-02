@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, Pressable , TouchableHighlight} from 'react-native'
+import React, { useState } from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { Colors } from '../../Theme/Colors';
 import Octicons from 'react-native-vector-icons/Octicons'
@@ -10,16 +10,16 @@ import { CategoryStyle } from './../../Styles/CategoryStyle/CategoryStyle';
 import { useNavigation } from '@react-navigation/native';
 
 const KiloBagHeader = ({ category,setCategory, location, title, search, image, backbtn, show, setShow, cross}) => {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
   return (
    <View style={styles.HeaderContainer}>
      <View style={styles.deliverLocation}>
 
         {
             location && <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <MaterialIcons name='location-on' style={{ fontSize: 40, color: Colors.White }} />
+            <MaterialIcons name='location-on' style={{ fontSize: 32, color: Colors.White }} />
                 <View >
-                    <Text style={styles.deliverTo}>Deliver To <AntDesign name='caretdown' style={{fontSize: 18 , color: 'white'}} /></Text>
+                    <Text style={styles.deliverTo}>Deliver To <AntDesign name='caretdown' style={{fontSize: 15 , color: 'white'}} /></Text>
                     <Text style={styles.location}>BTM  Layout, Bengaluru, Karnataka</Text>
                 </View>
             </View>
@@ -32,22 +32,32 @@ const KiloBagHeader = ({ category,setCategory, location, title, search, image, b
             </Pressable>
             <View>
                 <Pressable onPress={() => setShow(!show)}>
-                    <Text style={{ fontSize: 19, marginLeft: 15, fontWeight: '500', color: Colors.White}}>{category} <AntDesign name='caretdown' style={{fontSize: 18 , color: 'white'}} /></Text>
+                    <Text style={{ fontSize: 18, marginLeft: 15, fontWeight: '500', color: Colors.White}}>{category} <AntDesign name='caretdown' style={{fontSize: 18 , color: 'white'}} /></Text>
                 </Pressable>
                 {show &&  <View style={CategoryStyle.DropDownBox}>
+                    <TouchableHighlight
+                      activeOpacity={0.1}
+                      underlayColor= {Colors.LightGreen}
+                      style={{paddingHorizontal: 5, borderRadius: 5,}}
+                    onPress={() => setCategory('Pooja Needs')}>
+                        <Text style={CategoryStyle.DropDownText}>Pooja Needs</Text>
+                    </TouchableHighlight>
+
+                    <TouchableHighlight
+                      activeOpacity={0.1}
+                      underlayColor= {Colors.LightGreen}
+                        onPress={() => {
+                            setCategory('Fruit & Vegetable')
+                            setShow(false)
+                        }}>
+                        <Text style={CategoryStyle.DropDownText}>Dairy & Breakfas</Text>
+                    </TouchableHighlight>
                     <Pressable onPress={() => setCategory('New CateGory')}>
-                        <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                    <Pressable onPress={() => {
-                        setCategory('Fruit & Vegetable')
-                        setShow(false)
-                    }}>
-                        <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
+                        <Text style={CategoryStyle.DropDownText}>Snacks & Confectionary</Text></Pressable>
                     <Pressable onPress={() => setCategory('New CateGory')}>
-                        <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
+                        <Text style={CategoryStyle.DropDownText}>Meat, Fish & Egg</Text></Pressable>
                     <Pressable onPress={() => setCategory('New CateGory')}>
-                        <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
-                    <Pressable onPress={() => setCategory('New CateGory')}>
-                        <Text style={CategoryStyle.DropDownText}>Hi How Are You</Text></Pressable>
+                        <Text style={CategoryStyle.DropDownText}>Food & Oil</Text></Pressable>
                 </View>}
             </View>
             
@@ -76,12 +86,12 @@ const KiloBagHeader = ({ category,setCategory, location, title, search, image, b
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {
                 search &&   <Pressable onPress={() => navigation.navigate('SearchProduct')}>
-                    <FontAwesome name='search' style={{ fontSize: 22, color: Colors.White, marginRight: 25}} />
+                    <FontAwesome name='search' style={{ fontSize: 19, color: Colors.White, marginRight: 18}} />
                 </Pressable> 
             }
            {
             image &&  <Pressable onPress={() => navigation.navigate('Menu')}>
-                <Image style={{height: 50, width: 50}} source={require('../../../assets/Profileimg.png')} />
+                <Image style={{height: 35, width: 35}} source={require('../../../assets/Profileimg.png')} />
             </Pressable>
            }
         </View>
@@ -101,12 +111,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     deliverTo: {
-        fontSize: 17,
+        fontSize: 13,
         fontWeight: 'bold',
         color: Colors.White
     },
     location: {
-        fontSize: 14,
+        fontSize: 10,
         // fontWeight: 'bold',
         color: Colors.White
     },

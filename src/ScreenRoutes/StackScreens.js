@@ -20,13 +20,16 @@ import ModifyTemporary from './../screens/Mysubscription/ModifyTemporary';
 import PauseSubscription from './../screens/Mysubscription/PauseSubscription';
 import Suggestion from './../screens/Menu/Suggestion';
 import Errors from './../screens/Errors/Errors';
+import MyOrders from '../screens/MyOrders/MyOrders';
+import BagOrderDetails from '../screens/Checkout/BagOrderDetails';
+import Cart from '../screens/Cart/Cart';
 
 const Stack = createNativeStackNavigator();
 
-export default function StackScreens() {
+export function StackScreens() {
   return (
     <Stack.Navigator  screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home2" component={Home} />
       <Stack.Screen name="CategoryProduct" component={CategoryProduct} />
       <Stack.Screen name="TrendingProduct" component={TrendingProduct} />
       <Stack.Screen name="TodayOffers" component={TodayOffers} />
@@ -34,13 +37,34 @@ export default function StackScreens() {
       <Stack.Screen name="SearchProduct" component={SearchProduct} />
       <Stack.Screen name="SubscribeSuccess" component={SubscribeSuccess} />
       <Stack.Screen name="RequestDelivery" component={RequestDelivery} />
-      <Stack.Screen name="OrderDetails" component={OrderDetails} />
       <Stack.Screen name="Mysubscription" component={Mysubscription} /> 
       <Stack.Screen name="DeleteSubscription" component={DeleteSubscription} /> 
       <Stack.Screen name="PermanentModify" component={PermanentModify} /> 
       <Stack.Screen name="ModifyTemporary" component={ModifyTemporary} />
       <Stack.Screen name="PauseSubscription" component={PauseSubscription} /> 
       <Stack.Screen name="Errors" component={Errors} /> 
+      <Stack.Screen name="BagOrderDetails" component={BagOrderDetails} />
+    </Stack.Navigator>
+
+  )
+}
+
+export function StackScreens2() {
+  return (
+    <Stack.Navigator initialRouteName='MyOrders'  screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="MyOrders" component={MyOrders} />
+      <Stack.Screen name="OrderDetails" component={OrderDetails} />
+    </Stack.Navigator>
+
+  )
+}
+
+
+export function StackScreens3() {
+  return (
+    <Stack.Navigator initialRouteName='Cart'  screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Cart" component={Cart} />
+      <Stack.Screen name="BagOrderDetails" component={BagOrderDetails} />
     </Stack.Navigator>
 
   )

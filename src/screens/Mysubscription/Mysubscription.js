@@ -4,6 +4,7 @@ import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader'
 import { Colors } from './../../Theme/Colors';
 import { MysubscriptionStyle } from './../../Styles/MySubscription/MySubscription';
 import Modals from '../../components/Modals/Modals';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Buttons = ({title, bg, img, OnPress}) => {
@@ -19,6 +20,7 @@ const Buttons = ({title, bg, img, OnPress}) => {
 export default function Mysubscription() {
     const [modalVisible, setModalVisible] = useState(false);
     const [option, setOption] = useState('')
+    const navigation = useNavigation();
 
     const SubscriptionProduct = ({item}) => (
         <View style={MysubscriptionStyle.ProductMainView}>
@@ -45,10 +47,13 @@ export default function Mysubscription() {
                     <Buttons   OnPress={() => {
                         setModalVisible(true)
                         setOption('modify')
-                        console.log('clicked', modalVisible)
+                        
                     }} title="MODIFY" bg={Colors.LightGreen} img={require('../../../assets/pencil.png')}/>
                     {
-                        item == 4 || <Buttons title="PAUSE" bg={Colors.LightGreen} img={require('../../../assets/pause.png')} />
+                        item == 4 || <Buttons OnPress={() => {
+                            navigation.navigate('PauseSubscription')
+                            
+                        }} title="PAUSE" bg={Colors.LightGreen} img={require('../../../assets/pause.png')} />
                     }
                     {
                         item == 4 && <Buttons title="RESUME" bg='red'  img={require('../../../assets/resume.png')} />

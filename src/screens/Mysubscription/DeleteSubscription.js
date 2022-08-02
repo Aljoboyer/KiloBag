@@ -15,9 +15,9 @@ export default function DeleteSubscription() {
         }, 3000);
     }
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
         <KiloBagHeader title="Delete Subscription" search={true} image={true} />
-        <View style={{padding: 20}}>
+        <View style={{flex: 1,padding: 20}}>
             <View style={DeleteSubStyle.ProductView}>
                 <View style={DeleteSubStyle.ImgView}>
                     <Image style={{height: 69, width: 63}} source={require('../../../assets/Milk.png')} />

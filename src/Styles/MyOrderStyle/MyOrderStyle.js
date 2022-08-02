@@ -13,7 +13,6 @@ export const MyOrderStyle = StyleSheet.create({
     },
     MainView:{
       padding: 10,
-    
     },
     TabContainer:{
       flexDirection: 'row',
@@ -44,7 +43,7 @@ export const MyOrderStyle = StyleSheet.create({
       paddingBottom: 10
     },
     MyorderView:{
-  
+ 
     },
     SubscriptionView:{
   
@@ -84,14 +83,10 @@ export const MyOrderStyle = StyleSheet.create({
         marginVertical: 10
     },
     DeliverBtn:{
-        borderWidth: 1,
-        borderColor: Colors.LightGreen,
-        borderRadius: 5,
-        paddingHorizontal: 15,
         paddingVertical: 5
     },
     ItemText: {fontSize: 13, fontWeight: '500', color: 
-    'black'},
+    'black', textAlign: 'right'},
     ReorderBtn:{
         backgroundColor: Colors.LightGreen,
         width: '70%',
@@ -99,10 +94,59 @@ export const MyOrderStyle = StyleSheet.create({
         borderRadius: 5
     },
     CancelBtn:{
-        borderWidth: 1,
-        borderColor: '#A7A7A7',
-        borderRadius: 5,
-        paddingHorizontal: 15,
         paddingVertical: 5
     }
+})
+
+export const OrderDetailStyle = StyleSheet.create({
+  MainView:{
+    borderColor: Colors.SectionBorderColor,
+    borderWidth: 1,
+    borderRadius: 10,
+    margin: 12,
+    padding: 15,
+    flex: 1
+  },
+  DescripView:{
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  CircleView:{
+    height: 20,
+    width: 20,
+    borderRadius: 100
+  },
+  ProductView:{
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 12
+  },
+  CalculationView:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderTopColor: '#D6D6D6',
+    borderTopWidth: 2
+  },
+  CalText:{fontSize: 12, color: '#828282' , fontWeight: '500', paddingVertical: 5},
+  TotalText:{fontSize: 15, color: 'black' , fontWeight: '600', marginVertical: 8},
+  LocationText: {
+    fontSize: 13, fontWeight: '500', color: 
+    'black', 
+  },
+
+  PayTitle:{
+    fontSize: 14,
+    fontWeight: '400',
+    color: 'black'
+  },
+  PayAnytimeView:{
+    borderColor: Colors.SectionBorderColor,
+    borderWidth: 1,
+    borderRadius: 10,
+    marginHorizontal: 12,
+    paddingTop: 15,
+    paddingHorizontal: 15,
+    marginTop: 15
+  }
 })

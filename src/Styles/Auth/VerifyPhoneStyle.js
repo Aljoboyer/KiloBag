@@ -31,7 +31,7 @@ export const VerifyPhonestyles = StyleSheet.create({
     },
     CodeSentView:{
         flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
-        height: 150
+        height: 110
     },
     InputContainer:{
         flexDirection: 'row', 

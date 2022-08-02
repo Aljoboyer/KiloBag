@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Pressable, Image, ImageBackground } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Carousel from "pinar";
@@ -10,8 +10,11 @@ import { Colors } from '../../Theme/Colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { ProductDetailStyle } from './../../Styles/ProductDetailsStyle/ProductDetailStyle';
 import KiloBagHeader from './../../components/KiloBagHeader/KiloBagHeader';
+import BottomModal from './../../components/BottomModal/BottomModal';
 
 const ProductDetails = () => {
+    const [bottomModalVisible, setBottomModalVisible] = useState(false);
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <KiloBagHeader backbtn={true} search={true} image={true}/>
@@ -36,14 +39,16 @@ const ProductDetails = () => {
                     <View style={{ flexDirection: 'row', }}>
 
                         <View style={{ justifyContent: 'space-between', paddingBottom: 5, }}>
-                            <Text style={{fontSize: 17, fontWeight: '700', color: 'black'}}>Product Name</Text>
+                            <Text style={{fontSize: 16, fontWeight: '500', color: 'black'}}>Product Name</Text>
                             <Text style={{ marginVertical: 10, color: Colors.Black,fontWeight: '700',  }}>$209 {"   "}<Text style={{ textDecorationLine: 'line-through', marginLeft: 20, color: Colors.LightGray }}>$209</Text></Text>
 
-                            <Text  style={{ marginVertical: 5, color: Colors.LightGreen,fontWeight: '700',  }}>1kg {" "} <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
+                            <Pressable onPress={() => setBottomModalVisible(true)}>
+                                 <Text  style={{ marginVertical: 5, color: Colors.LightGreen,fontWeight: '700',  }}>1kg {" "} <Octicons name='chevron-down' style={{ color: Colors.LightGreen, fontSize: 12, }} /></Text>
+                            </Pressable>
 
-                            <View style={ProductDetailStyle.SubscribeBtn}>
+                            <Pressable style={ProductDetailStyle.SubscribeBtn}>
                                 <Text style={{color: Colors.LightGreen, fontSize: 12}}>Subscribe @20</Text>
-                            </View>
+                            </Pressable>
                         </View>
                     </View>
                     <View style={{ justifyContent: 'flex-end', padding: 2 }}>
@@ -67,6 +72,8 @@ const ProductDetails = () => {
                     </Text>
                 </View>
             </ScrollView>
+
+            <BottomModal bottomModalVisible={bottomModalVisible}setBottomModalVisible={setBottomModalVisible} />
         </SafeAreaView>
     );
 }

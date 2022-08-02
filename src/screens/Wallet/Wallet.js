@@ -1,13 +1,21 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, Pressable, FlatList } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, Pressable, FlatList, ActivityIndicator, ScrollView, Animated } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
 import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader'
 import { Colors } from './../../Theme/Colors';
 import { ModalStyle } from '../../Styles/ModalStyle/ModalStyle';
 import { Avatar, Icon, ListItem } from "@rneui/themed";
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import ErrorText from '../../components/ErrorText/ErrorText';
+import * as Animatable from 'react-native-animatable';
+import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 
 export default function Wallet() {
-  const [expanded, setExpanded] = React.useState(null);
+  const [expanded, setExpanded] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const [errors, setErrors] = useState(null);
+  const [focused, setFocused] = useState(1)
+  const isVisible = useIsFocused();
+
   const data = [{title: 'Amount Credited', cf: 'UPI'},
   {title: 'Amount Credited', cf: 'Netbanking'},
   {title: 'Amount Debited', cf: 'Subscrption Order'},
@@ -15,6 +23,15 @@ export default function Wallet() {
   {title: 'Amount Credited', cf: 'Refund'},
   {title: 'Cash Failure', cf: 'Buy Once Order'}
 ]
+
+  const OnChangeHandler = (text) => {
+      if(isNaN(text)){
+        setErrors('Please enter number')
+      }
+      else{   
+        setErrors(null)
+      }
+  }
 
   const TransitationItem = ({item}) => (
     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 15}}>
@@ -33,63 +50,77 @@ export default function Wallet() {
         </View>
     </View>
   )
+
+  useEffect(() => {;
+  if (isVisible) {
+    setFocused(2)
+    console.log('fuccesd')
+  }
+  },[isVisible])
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <KiloBagHeader  title='Wallet' search={true} image={true}/>
-      <View style={{padding: 20, flex: 1}}>
-          <View style={WalletStyle.WalletView}>
-              <View>
-                  <Text style={WalletStyle.WalletText}>Wallet Balance</Text>
-                  <Text style={{fontWeight: '600', fontSize: 16, color: Colors.LightGreen, marginTop: 5}}> <Image source={require('../../../assets/rupiIcon.png')} /> 500.00</Text>
+        <ScrollView   style={{padding: 20, flex: 1}}>
+          <Animatable.View  animation="fadeIn" duration={2000} easing="ease-in-out">
+              <View style={WalletStyle.WalletView}>
+                  <View>
+                      <Text style={WalletStyle.WalletText}>Wallet Balance</Text>
+                      <Text style={{fontWeight: '600', fontSize: 16, color: Colors.LightGreen, marginTop: 5}}> <Image source={require('../../../assets/rupiIcon.png')} /> 500.00</Text>
+                  </View>
+                  <Image source={require('../../../assets/mainWallet.png')} />
               </View>
-              <Image source={require('../../../assets/mainWallet.png')} />
-          </View>
 
-          <View style={WalletStyle.TopUpView}>
-              <Text style={[WalletStyle.WalletText, {marginLeft: 5}]}>Topup Wallet</Text>
-              <TextInput style={WalletStyle.Inputs} />
-              <Text style={{fontWeight: '400', fontSize: 12, color: '#2E2E2E', marginLeft: 5}}>Recommended</Text>
-              <View style={WalletStyle.RecomandView}>
-                  <View style={WalletStyle.MoneyView}><Text>100</Text></View>
-                  <View style={WalletStyle.MoneyView}><Text>500</Text></View>
-                  <View style={WalletStyle.MoneyView}><Text>1000</Text></View>
-                  <View style={WalletStyle.MoneyView}><Text>2000</Text></View>
+              <View style={WalletStyle.TopUpView}>
+                  <Text style={[WalletStyle.WalletText, {marginLeft: 5}]}>Topup Wallet</Text>
+                  <TextInput placeholder='Enter amount' keyboardType='number-pad' onChangeText={(text) => OnChangeHandler(text)}  style={WalletStyle.Inputs} />
+
+                  {errors && <ErrorText errors={errors} />}
+
+                  <View style={WalletStyle.RecomandView}>
+                      <View style={WalletStyle.MoneyView}><Text>100</Text></View>
+                      <View style={WalletStyle.MoneyView}><Text>500</Text></View>
+                      <View style={WalletStyle.MoneyView}><Text>1000</Text></View>
+                      <View style={WalletStyle.MoneyView}><Text>2000</Text></View>
+                  </View>
+                  <Pressable onPress={() => setLoader(!loader)} style={[ModalStyle.ButtonsCommonStyle, WalletStyle.Buttons]}>
+                  {
+                      loader ? <ActivityIndicator color='white' size="small" /> : <Text style={{fontWeight: '500', fontSize: 14, color: 'white'}}>Add Money</Text>
+                  }
+                  </Pressable> 
               </View>
-              <Pressable style={[ModalStyle.ButtonsCommonStyle, WalletStyle.Buttons]}>
-                  <Text style={{fontWeight: '500', fontSize: 14, color: 'white'}}>Add Money</Text>
-              </Pressable>
-          </View>
 
-          <View style={{flex: 1, paddingBottom: 20, marginTop: 10, }}>
-            <ListItem.Accordion
-            style={{borderColor: Colors.SectionBorderColor, borderWidth: 1, borderRadius: 5}}
-                  content={
-                  <>
-                    <ListItem.Content >
-                        <ListItem.Title style={{color: '#2E2E2E', fontSize: 14, fontWeight: '500' }}>Transaction History</ListItem.Title>
-                    </ListItem.Content>
-                  </>
-              }
-              isExpanded={expanded}
-              onPress={() => {
-                  setExpanded(!expanded);
-              }}
-              icon={ <AntDesign name={ expanded ? 'up' : 'down'} style={{fontSize: 20 , color: Colors.LightGreen}} />}
-              noRotation
-              >
-                  <ListItem>
-                    <FlatList
-                    data={data}
-                    renderItem={TransitationItem}
-                    keyExtractor={item => item.index}
-                    horizontal={false}
-                    showsHorizontalScrollIndicator={false}
-                    showsVerticalScrollIndicator={false}
-                    />
-                  </ListItem>
-              </ListItem.Accordion>
-          </View>
-      </View>
+              <View style={{flex: 1, paddingBottom: 20, marginTop: 10, }}>
+                <ListItem.Accordion
+                style={{borderColor: Colors.SectionBorderColor, borderWidth: 1, borderRadius: 5}}
+                      content={
+                      <>
+                        <ListItem.Content >
+                            <ListItem.Title style={{color: '#2E2E2E', fontSize: 14, fontWeight: '500' }}>Transaction History</ListItem.Title>
+                        </ListItem.Content>
+                      </>
+                  }
+                  isExpanded={expanded}
+                  onPress={() => {
+                      setExpanded(!expanded);
+                  }}
+                  icon={ <AntDesign name={ expanded ? 'up' : 'down'} style={{fontSize: 20 , color: Colors.LightGreen}} />}
+                  noRotation
+                  >
+                      <ListItem>
+                        <FlatList
+                        data={data}
+                        renderItem={TransitationItem}
+                        keyExtractor={item => item.index}
+                        horizontal={false}
+                        showsHorizontalScrollIndicator={false}
+                        showsVerticalScrollIndicator={false}
+                        />
+                      </ListItem>
+                  </ListItem.Accordion>
+              </View>
+            </Animatable.View>
+          </ScrollView>
     </SafeAreaView>
   )
 }
@@ -113,7 +144,8 @@ const WalletStyle = StyleSheet.create({
     borderColor: Colors.LightGreen,
     borderWidth: 1,
     marginVertical: 10,
-    marginLeft: 5
+    marginLeft: 5,
+    paddingLeft: 15
   },
   MoneyView:{
     width: 65,

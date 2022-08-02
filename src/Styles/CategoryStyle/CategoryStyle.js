@@ -73,10 +73,16 @@ export const CategoryStyle = StyleSheet.create({
         height:  55,
         width: 40,
     },
-    DropDownBox: {backgroundColor: 'white', position: 'absolute', left: 10, width: 160, top: 30, zIndex: 2, justifyContent: 'center', alignItems: 'center', paddingVertical: 10, elevation: 2, borderRadius: 10},
+    DropDownBox: {backgroundColor: 'white', position: 'absolute', left: 10, width: 160, top: 30, zIndex: 2, justifyContent: 'center', alignItems: 'flex-start', paddingVertical: 10, elevation: 2, borderRadius: 10, paddingLeft: 15},
     DropDownText:{
-        fontSize: 15,
+        fontSize: 12,
         fontWeight: '500',
         marginVertical: 10
+    },
+    DropDownText2:{
+        fontSize: 12,
+        fontWeight: '500',
+        marginVertical: 10,
+        color: 'white'
     }
 })

@@ -6,7 +6,6 @@ export const ProductDetailStyle = StyleSheet.create({
     container: {
         flex: 1,
         padding: 25,
-        backgroundColor: 'white',
     },
     stickyNavigation: {
         flexDirection: 'row',

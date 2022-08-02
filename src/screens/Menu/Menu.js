@@ -1,5 +1,5 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet, Pressable, } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Pressable, ActivityIndicator, } from 'react-native'
+import React, { useState } from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import CustomButton from '../../components/CustomButton'
@@ -9,9 +9,11 @@ import KiloBagHeader from '../../components/KiloBagHeader/KiloBagHeader'
 import { ModalStyle } from '../../Styles/ModalStyle/ModalStyle'
 
 const Menu = ({navigation}) => {
+    const [loader, setLoader] = useState(false);
     const menu = [
         "Order", "My Subscriptions", "Wallet", "Delivery Address", "Help & Faq",  "Terms and Condition", "Return and Refund Policy", "Suggestions",  "About",  "App Version"
-    ]
+    ];
+
     return (
         <SafeAreaView style={{ flex: 1,}}>
             <KiloBagHeader title="User Profile" />
@@ -42,8 +44,10 @@ const Menu = ({navigation}) => {
 
             </ScrollView>
             <View style={{paddingHorizontal: 30}}>
-                <Pressable style={[ModalStyle.ButtonsCommonStyle, {height: 45, width: '100%', marginVertical: 20, borderRadius: 10}]}>
-                    <Text style={{fontSize: 15, fontWeight: '600', color: 'white'}}>Logout</Text>
+                <Pressable onPress={() => setLoader(!loader)} style={[ModalStyle.ButtonsCommonStyle, {height: 45, width: '100%', marginVertical: 20, borderRadius: 10}]}>
+                    {
+                       loader ? <ActivityIndicator color='white' size="small" /> :  <Text style={{fontSize: 15, fontWeight: '600', color: 'white'}}>Logout</Text>
+                    }
                 </Pressable>
             </View>
         </SafeAreaView>

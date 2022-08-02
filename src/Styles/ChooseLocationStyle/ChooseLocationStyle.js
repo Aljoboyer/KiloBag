@@ -35,17 +35,18 @@ export const ChooseLocationStyle = StyleSheet.create({
         justifyContent: "center",
         height,
         mainHeight,
-        backgroundColor: "transparent"
-        
+        backgroundColor: "transparent",
     },
-    ContentContainer:{      position: "absolute",
+    ContentContainer:{
+    position: "absolute",
     bottom: 0,
     width,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: "white",
     paddingHorizontal: 30,
-    paddingVertical: 10
+    paddingVertical: 10,
+
     },
     ComingTitle:{fontSize: 22, fontWeight: '600', color: '#303030', paddingVertical: 20},
     ComingView:{justifyContent: 'center', alignItems: 'center', height: 500}
