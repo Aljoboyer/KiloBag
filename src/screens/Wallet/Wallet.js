@@ -62,7 +62,7 @@ export default function Wallet() {
     <SafeAreaView style={{flex: 1}}>
       <KiloBagHeader  title='Wallet' search={true} image={true}/>
         <ScrollView   style={{padding: 20, flex: 1}}>
-          <Animatable.View  animation="fadeIn" duration={2000} easing="ease-in-out">
+          <Animatable.View  animation="fadeIn" duration={1000} easing="ease-in-out">
               <View style={WalletStyle.WalletView}>
                   <View>
                       <Text style={WalletStyle.WalletText}>Wallet Balance</Text>

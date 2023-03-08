@@ -80,7 +80,7 @@ const Home = ({ navigation }) => {
                     </Pressable>
                 </View>
       
-                <View style={{ marginTop: 50 }} >
+                <View style={{ marginTop: 30 }} >
                     <Text style={Homestyles.sectionTitle}>Top Categories <Image source={require('../../../assets/topcat.png')}/></Text>
 
                     <CategoryItem skeletonShow={skeletonShow} categories={topCat} />
@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
                         <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
                     </Pressable>
                 </View>
-                <View style={{ marginTop: 50 }} >
+                <View style={{ marginTop: 30 }} >
                     <Text style={Homestyles.sectionTitle}>Today's Offers<Image source={require('../../../assets/parcentageIcon.png')}/></Text>
                     <View style={Homestyles.slideShow}>
                     <Carousel
@@ -110,12 +110,9 @@ const Home = ({ navigation }) => {
                         </View>
                     </Carousel>
                 </View>
-                    <Pressable onPress={() => navigation.navigate('TodayOffers')} style={Homestyles.viewAll}>
-                        <Text style={Homestyles.ViewText}>View all</Text>
-                        <Octicons name='chevron-right' style={{ fontSize: 18, marginLeft: 7 , }} />
-                    </Pressable>
+                   
                 </View>
-                <View style={{ marginTop: 50 , paddingBottom: 20}} >
+                <View style={{ marginTop: 0 , paddingBottom: 20}} >
                     <Text style={Homestyles.sectionTitle}>New Arrivals<Image source={require('../../../assets/neartoyou.png')}/></Text>
                     <FreshFindItem setBottomModalVisible={setBottomModalVisible}  items={FreshItems} />
                 </View>
